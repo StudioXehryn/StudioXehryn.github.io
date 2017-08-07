@@ -3863,7 +3863,7 @@
 			-webkit-flex-shrink: 1;
 			-ms-flex-shrink: 1;
 			flex-shrink: 1;
-			width: 50%;
+			width: 100%;
 		}
 
 		#banner .image {
