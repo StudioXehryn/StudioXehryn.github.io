@@ -237,6 +237,30 @@ footer p a {
 }
 footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
 
+.nobreak {
+    white-space: nowrap;
+}
+
+.youtube-container {
+    width: 100%;
+    max-width: 560px;
+    float: right;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 /** Responsive **/
 @media screen and (max-width: 740px) {
