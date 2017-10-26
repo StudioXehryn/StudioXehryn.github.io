@@ -43,13 +43,76 @@ License: Creative Commons Attribution
 
         <section id="content" class="column-right">
             <article>
-                <img src="images/gate-of-providence-banner.jpg" alt="Gate of Providence" style='float: right; max-width: 100%; height: auto;'/>
-                <h2><span class="nobreak">Gate of Providence</span> - Gallery</h2>
-                <h3>Under Construction!</h3>
+                <h2><span class="nobreak">Gate of Providence</span> - Screenshot Gallery</h2>
+                <p>Here you will find a gallery of screenshots from the game!</p>
+                <div style="max-width: 640px; margin: auto;">
+                    <img class="gallery" src="images/gallery/0.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/1.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/2.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/3.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/4.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/5.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/6.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/7.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/8.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/9.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/10.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/11.png" style="width:100%">
+                    <img class="gallery" src="images/gallery/12.png" style="width:100%">
+
+                    <br>
+                    <div style="text-align: center;"><p id="desc">Click on the smaller images below to expand them!</p></div>
+                    <hr>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><img src="images/gallery/1.png" style="width:100%" onclick="changeImage(1, 'Jun and Ne\'l stand in the middle of the busy Saki Market.')"></td>
+                                <td><img src="images/gallery/2.png" style="width:100%" onclick="changeImage(2, 'Jun is preparing to attack two Giant Scorpions in Iris Desert.')"></td>
+                                <td><img src="images/gallery/3.png" style="width:100%" onclick="changeImage(3, 'Jun delivers a one-liner before wiping out a Providence hideout.')"></td>
+                                <td><img src="images/gallery/4.png" style="width:100%" onclick="changeImage(4, 'Views from a bridge in the Volcanic Subterrane.')"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/gallery/5.png" style="width:100%" onclick="changeImage(5, 'Glowing lights, crystals, and moving armors... What is this place?')"></td>
+                                <td><img src="images/gallery/6.png" style="width:100%" onclick="changeImage(6, 'Two Gray Wolves attack the duo in Elysian Forest.')"></td>
+                                <td><img src="images/gallery/7.png" style="width:100%" onclick="changeImage(7, 'A save statue is activated in Solem.')"></td>
+                                <td><img src="images/gallery/8.png" style="width:100%" onclick="changeImage(8, 'Ne\'l decides what equipment to upgrade.')"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/gallery/9.png" style="width:100%" onclick="changeImage(9, 'Jun trying to fish for Pike in Elysian Forest.')"></td>
+                                <td><img src="images/gallery/10.png" style="width:100%" onclick="changeImage(10, 'A cheeky puzzle involving crystals found in one of Eria\'s district buildings.')"></td>
+                                <td><img src="images/gallery/11.png" style="width:100%" onclick="changeImage(11, 'A shopkeeper selling grilled fish in Eria\'s Market District.')"></td>
+                                <td><img src="images/gallery/12.png" style="width:100%" onclick="changeImage(12, 'Victor tags along as an Ice Elemental attacks the party.')"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr>
+                </div>
+
+                <!-- JS is here to not have a separate file. -->
+                <script>
+                    var index = 0;
+                    showImage(index);
+
+                    function changeImage(n, text) {
+                        showImage(index = n);
+                        document.getElementById("desc").textContent=text;
+                    }
+
+                    function showImage(n) {
+                        var i;
+                        var x = document.getElementsByClassName("gallery");
+
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        
+                        x[index].style.display = "block";
+                    }
+                </script>
+                
             </article>
 
         </section>
-
 
 	</section>
 	
