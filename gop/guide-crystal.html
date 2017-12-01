@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108805625-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gate of Providence | Guide - Crystal Circuits</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--
+anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+
+    <section id="body" class="width">
+        <aside id="sidebar" class="column-left">
+			<header>
+				<a href="/gop/" class="image"><img src="images/gate-of-providence-logo-top.png" alt="Gate of Providence Logo"/></a>
+			</header>
+            <nav id="mainnav">
+                <ul>
+                    <li><a href="/gop/">Home</a></li>
+                    <li><a href="/gop/download">Download</a></li>
+                    <li><a href="/gop/gallery">Gallery</a></li>
+                    <li class="selected-item"><a href="/gop/faqs">FAQs</a></li>
+                    <li><a href="https://www.reddit.com/r/GateOfProvidence/">Subreddit</a></li>
+                    <li><a href="/">Back to Studio Xehryn</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <p>&copy; 2017 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/twitter.svg" style="height: 32px;"><img></a></div>
+            </footer>
+        </aside>
+
+        <section id="content" class="column-right">
+            <article>
+                <h2>Liberation of Eria: Chapter 5 - Crystal Circuits Puzzle</h2>
+                <h5>This page is best viewed on a computer or tablet.</h5>
+				<p>In Liberation of Eria - Chapter 5, you will encounter a somewhat difficult puzzle in Raphael's Domain. Here are some hints to help you solve it.</p>
+                
+                <h4>Hint 1: Examine the pillars with the red crystal balls on them.</h4>
+                <table><tr><td><img src="images/crystals/hint1.png" style="max-width: 640px; width:100%" alt="Hint 1"/></td><td><img src="images/crystals/hint2.png" style="max-width: 640px; width:100%" alt="Hint 2"/></td></tr></table>
+                <p>Notice how the dimmer ball (unpowered) shows a value of 0, and the brighter ball (powered) shows a value of 1.<br>The goal of the puzzle is to get the powered line connected to the door.</p>
+
+                <h4>Hint 2: Examine the pillars with the green, blue, and purple crystal balls on them.</h4>
+                <table><tr><td><img src="images/crystals/hint3.png" style="max-width: 640px; width:100%" alt="Hint 3"/></td><td><img src="images/crystals/hint4.png" style="max-width: 640px; width:100%" alt="Hint 4"/></td><td><img src="images/crystals/hint5.png" style="max-width: 640px; width:100%" alt="Hint 5"/></td></tr></table>
+                <p>These are the three crystal colors that you can use. They control the flow of power. The pillars show which colors are available to use. When the orb is dimmed, it means that color is already used.<br>The green crystal only lets power flow through if both inputs are powered (1).<br>The blue crystal only lets power flow through as long as one of the inputs are powered (1).<br>The purple crystal only lets power flow through if only one input is powered (1).</p>
+
+                <hr>
+                
+                <h3>Solutions and Explanations</h3>
+                <h5>Stop scrolling at this point if you would like to solve the puzzle on your own!</h5>
+                <p>If you are knowledgeable on logic gates, you should already understand the puzzle and should be able to solve it with ease. If not, here are the solutions.</p>
+                
+                <h4>Solution: Room 1</h4>
+                <img src="images/crystals/solution1.png" style="max-width: 640px; width:100%" alt="Solution 1"/>
+                <p>Both a purple or blue crystal will work in this instance. This is because the current input is (0+1), and both the purple and blue crystal produces power (0+1=1) with this input.</p>
+
+                <h4>Solution: Room 2</h4>
+                <img src="images/crystals/solution2.png" style="max-width: 640px; width:100%" alt="Solution 2"/>
+                <p>Taking into consideration that the green crystal has already been used, there are only two options for the crystals: blue and purple. As we previously learned, both a blue and purple will produce power for the inputs on top (0+1), but only one crystal, blue, will produce power for the inputs on the bottom (1+1). Since the green crystal will only produce power with input (1+1), so we need to use the purple crystal on top and the blue crystal on the bottom.</p>
+                
+                <h4>Solution: Room 3</h4>
+                <img src="images/crystals/solution3.png" style="max-width: 640px; width:100%" alt="Solution 3"/>
+                <p>Here, one of the purple crystals and the only green crystal are already being used. Let's divide this into the top half and bottom half. Both these halves will act as inputs for the purple crystal connected to the door, which we will call the door crystal. We will have to find a combination that results in power, which are (0+1=1) and (1+0=1).<br>For the top half, if we use a blue crystal, it will give (1+1) to the green crystal. This produces power for the door crystal, fulfilling one of the input combinations (1). For the bottom half, if we use a blue crystal on the left and a purple crystal on the right, it will produce no power for the door crystal (0). With the input (1+0) for the door crystal, the door is powered.</p>
+                
+                <h4>Solution: Room 4</h4>
+                <img src="images/crystals/solution4.png" style="max-width: 640px; width:100%" alt="Solution 4"/>
+                <p>This room is slightly more complicated. Here, we must use all the crystals in order to open the door.<br>Apply everything we learned from the previous rooms. This is one possible solution.</p>
+
+                <p>And that's all. The puzzle is over - now prepare for a battle against Raphael!</p>
+            </article>
+
+        </section>
+
+
+	</section>
+	
+
+</body>
+</html>
