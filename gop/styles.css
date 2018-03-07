@@ -217,6 +217,7 @@ article .article-info a {
 	color: #ccc;
 }
 
+
 /** footer **/
 footer {
 	padding:20px 0px;
@@ -234,9 +235,7 @@ footer p a {
 	text-decoration:none;
 	border-bottom:1px solid #fff;
 }
-footer p a:hover { color:#333; border-bottom-color: #333; }
-
-
+footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
 
 .nobreak {
     white-space: nowrap;
@@ -262,8 +261,6 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 	width: 100%;
 	height: 100%;
 }
-
-
 
 /** Responsive **/
 @media screen and (max-width: 740px) {
