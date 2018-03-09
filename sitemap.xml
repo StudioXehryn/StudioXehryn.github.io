@@ -11,11 +11,15 @@
 </url>
 <url>
   <loc>http://www.xehryn.com/games</loc>
-  <priority>0.80</priority>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/tutorials/</loc>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.xehryn.com/blog/</loc>
-  <priority>0.80</priority>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.xehryn.com/gop/</loc>
@@ -26,11 +30,35 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>http://www.xehryn.com/we/</loc>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/tutorials/evented-fishing</loc>
+  <priority>0.40</priority>
+</url>
+<url>
   <loc>http://www.xehryn.com/blog/1</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/blog/2</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/blog/3</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/blog/postmortem-dd</loc>
   <priority>0.40</priority>
 </url>
 <url>
   <loc>http://www.xehryn.com/gop/download</loc>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/faqs</loc>
   <priority>0.60</priority>
 </url>
 <url>
@@ -38,11 +66,31 @@
   <priority>0.60</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/faqs</loc>
-  <priority>0.60</priority>
+  <loc>http://www.xehryn.com/gop/guide-canowi</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/guide-crystal</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/guide-dragon</loc>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/guide-fishing</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/guide-flower</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.xehryn.com/gop/guide-superboss</loc>
+  <priority>0.30</priority>
 </url>
 <url>
   <loc>http://www.xehryn.com/dd/downloads</loc>
-  <priority>0.60</priority>
+  <priority>0.90</priority>
 </url>
 </urlset>
