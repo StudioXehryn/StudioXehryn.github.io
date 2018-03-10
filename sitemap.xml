@@ -6,91 +6,91 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://www.xehryn.com/</loc>
+  <loc>https://www.xehryn.com/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/games</loc>
+  <loc>https://www.xehryn.com/games</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/tutorials/</loc>
+  <loc>https://www.xehryn.com/tutorials/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/blog/</loc>
+  <loc>https://www.xehryn.com/blog/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/</loc>
+  <loc>https://www.xehryn.com/gop/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/dd/</loc>
+  <loc>https://www.xehryn.com/dd/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/we/</loc>
+  <loc>https://www.xehryn.com/we/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/tutorials/evented-fishing</loc>
+  <loc>https://www.xehryn.com/tutorials/evented-fishing</loc>
   <priority>0.40</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/blog/1</loc>
+  <loc>https://www.xehryn.com/blog/1</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/blog/2</loc>
+  <loc>https://www.xehryn.com/blog/2</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/blog/3</loc>
+  <loc>https://www.xehryn.com/blog/3</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/blog/postmortem-dd</loc>
+  <loc>https://www.xehryn.com/blog/postmortem-dd</loc>
   <priority>0.40</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/download</loc>
+  <loc>https://www.xehryn.com/gop/download</loc>
   <priority>0.90</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/faqs</loc>
+  <loc>https://www.xehryn.com/gop/faqs</loc>
   <priority>0.60</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/gallery</loc>
+  <loc>https://www.xehryn.com/gop/gallery</loc>
   <priority>0.60</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-canowi</loc>
+  <loc>https://www.xehryn.com/gop/guide-canowi</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-crystal</loc>
+  <loc>https://www.xehryn.com/gop/guide-crystal</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-dragon</loc>
+  <loc>https://www.xehryn.com/gop/guide-dragon</loc>
   <priority>0.50</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-fishing</loc>
+  <loc>https://www.xehryn.com/gop/guide-fishing</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-flower</loc>
+  <loc>https://www.xehryn.com/gop/guide-flower</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/gop/guide-superboss</loc>
+  <loc>https://www.xehryn.com/gop/guide-superboss</loc>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>http://www.xehryn.com/dd/downloads</loc>
+  <loc>https://www.xehryn.com/dd/downloads</loc>
   <priority>0.90</priority>
 </url>
 </urlset>
