@@ -53,13 +53,14 @@ License: Creative Commons Attribution
             <article>
                 <img src="images/fishing/banner.jpg" style='float: right; max-width: 100%; height: auto; padding: 10px;'/>
                 <h2>Evented Fishing System in RPG Maker VX Ace</h2>
-                <div class="article-info">Posted on <time datetime="2017-12-13">March 7, 2018</time> by <b>Henry Pan</b></div>
+                <div class="article-info">Posted on <time datetime="2017-12-13">March 9, 2018</time> by <b>Henry Pan</b></div>
                 <h4>Difficulty: Easy</h4>
                 <h5>Function: Press the correct key during the required timeframe to succeed.</h5>
                 
                 <h3>Introduction</h3>
                 <p>This is a tutorial on making an evented fishing system (or any sort of reflex event), as seen in <a href="https://www.xehryn.com/gop">Gate of Providence</a>!</p>
                 <p>Interact with a fishing spot and press the Z key when the exclamation balloon appears to reel in a fish.</p>
+                <p>Because this system is evented, it is possible to use this in other RPG Maker versions, with some modifications to script calls.</p>
                 
                 <h3>Parallel Event Bug Fix</h3>
                 <p>Before we get started with the eventing, we must fix a bug that is included with RPG Maker VX Ace. First, open the <b>Script Editor</b>. Find <b>Game_Interpreter</b> and go to line 106. Comment out <i>Fiber.yield</i> and paste <i>Fiber.yield</i> on the line below <i>@fiber = nil</i>. This essentially swaps the two lines and is required for this system to work. Without this fix, button inputs would feel unresponsive.
