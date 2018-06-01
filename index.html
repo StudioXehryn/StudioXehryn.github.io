@@ -32,8 +32,11 @@ License: Creative Commons Attribution
     <section id="body" class="width">
         <aside id="sidebar" class="column-left">
 			<header>
-				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
-			</header>
+				<a href="/"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
+                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
+                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
+            </header>
+            <div class="mobile-menu-nav" id="mobile-menu-nav">
             <nav id="mainnav">
                 <ul>
                     <li class="selected-item"><a href="/">Home</a></li>
@@ -43,10 +46,11 @@ License: Creative Commons Attribution
                 </ul>
             </nav>
             <footer>
-                <p>&copy; 2017 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
                 <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
                 <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
             </footer>
+            </div>
         </aside>
 
         <section id="content" class="column-right">

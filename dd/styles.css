@@ -258,6 +258,13 @@ footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
 	height: 100%;
 }
 
+.mobile-menu {
+    position: absolute;
+    padding-right: 15px;
+    right: 0;
+    display: none;
+}
+
 /** Responsive **/
 @media screen and (max-width: 740px) {
 	body { font-size: 0.9em; }	
@@ -267,12 +274,16 @@ footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
     .nobreak { white-space: normal; }
 	section#content, aside#sidebar { position: relative; float: none; width: auto; margin-left: 0; }
     .timeline { display: none;}
+    .mobile-menu { display: inline;}
+    .mobile-menu-nav { display: none;}
 }
 
 @media screen and (max-width: 540px) {
 	body { font-size: 0.8em; }
-	header, header h1 a, header h1 a:hover { text-align: center; padding: 10px 0 0 0; font-size: 1.1em; }
+	header, header h1 a, header h1 a:hover { text-align: center; font-size: 1.1em; }
     .nobreak { white-space: normal; }
 	nav#mainnav ul li a { margin-top: 0; padding: 1em; }
     .timeline { display: none;}
+    .mobile-menu { display: inline;}
+    .mobile-menu-nav { display: none;}
 }
