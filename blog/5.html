@@ -44,7 +44,7 @@ License: Creative Commons Attribution
             </nav>
             <footer>
                 <p>&copy; 2017 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
-                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.png"><img></a></div>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
                 <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
             </footer>
         </aside>
@@ -52,31 +52,31 @@ License: Creative Commons Attribution
         <section id="content" class="column-right">
             <article>
                 <img src="images/banners/5-banner.jpg" style='float: right; max-width: 100%; height: auto; padding: 10px;'/>
-                <h2>Project Roguelike: Gameplay and Combat</h2>
+                <h1>Project Roguelike: Gameplay and Combat</h1>
                 <div class="article-info">Posted on <time datetime="2018-03-31">March 31, 2018</time> by <b>Henry Pan</b></div>
                 
-                <h3>Recent Events</h3>
+                <h2>Recent Events</h2>
                 <p>Development of <a href="https://www.xehryn.com/we/"><b>Windra's Endgame</b></a> continues. I'll have to start making the battle animations at some point...</p>
                 <p><b>Gate of Providence</b> v1.0.2 was also released on <a href="https://rpgmaker.net/games/10418/">rpgmaker.net</a>. It gained more views in 2 days than it did ever on <a href="https://xehryn.itch.io/gate-of-providence">itch.io</a>, which has been up for several months now. I suppose that's expected as it was on the front page of RMN for a week.</p>
                 <p> In the meantime, I've also been working on my roguelike project. Last time, I shared a bit of the character customization options. In this post, we'll be looking at the combat system and general gameplay.</p>
                 
-                <h3>Project Roguelike Combat Demonstration</h3>
+                <h2>Project Roguelike Combat Demonstration</h2>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/mqCxc25imAo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <p>Here is a video demonstrating the combat / gameplay. Turn on captions to see a bit of commentary.</p>
                 
-                <h3>Gameplay Mechanics</h3>
+                <h2>Gameplay Mechanics</h2>
                 <p>The game features some typical roguelike mechanics: <ul><li>Permadeath - You die and your character is gone for good.</li><li>Randomized gameplay - Explore randomized dungeons, filled with monsters and items that are randomly placed within.</li><li>Hunger System - Keep track of your Stamina (Hunger), if it drops to zero, you die.</li><li>Turn-based Movement - Monsters only move/attack after you do.</li><li>Item Management - Manage your items carefully, as they have weight and you may not be able to carry everything you find.</li></ul></p>
                 <p>Some non-typical mechanics include: <ul><li>Buying Levelups - Defeat monsters for currency that can be used to shop for things or spent to level up stats. This lets a player be able to (theoretically) beat the game at level 1 or without killing any monsters.</li><li>Gathering and Crafting - Find and cook meat. Mine ores, smelt them into ingots, upgrade your equipment. Forage for herbs, brew potions.</li></ul></p>
                 <p>Because of these added mechanics, I've decided to forgo an identification system. Plus it's complicated to make in RPG Maker anyway.</p>
                 
                 
-                <h3>Eventing the Combat System</h3>
+                <h2>Eventing the Combat System</h2>
                 <p>The turn-based, on-map battle system shown in the video was made with the event system of RPG Maker VX Ace. Making it was not too difficult. It involved several common events that called each other:<ul><li>Global Turn</li><li>Enemy Turn</li><li>Player Attack</li><li>Damage Calculation</li><li>Process Enemy</li><li>Respawn Enemy</li></ul></p>
                 <p>The player gets the first action. They can choose to move, attack (<i>Player Attack</i>), or use an item. All of these trigger <i>Enemy Turn</i> at the end.<br><i>Enemy Turn</i> then iterates through all the enemies on the map, running <i>Process Enemy</i> for each. If it is time for an enemy to respawn, <i>Respawn Enemy</i> is called, and a new enemy is placed on the map. In <i>Process Enemy</i>, the enemy will move around or towards the player, depending on distance. If the enemy is within range of attacking the player, it will attack, which calls <i>Damage Calculation</i>.<br>After all enemies have acted, <i>Global Turn</i> is called. This handles HP regeneration and stamina depletion, and increases the turn count by 1. Control is given back to the player once again.</p>
                 <p>Enemies are stored in <i>$game_variables</i> (yes, as in the variables used by the event system) as arrays that will filled at spawn. An enemy Slime, for example, would be stored as <i>[1,1,0,10,1,[0,0],1,3,5,4]</i>. The parameters are <i>[enemy_id, enemy_level, respawn, hp, attack_animation, [status_effect, duration], range, hit_rate, str, def].</i> Script calls can grab parameters from the database using <i>$data_enemies[id]</i>. I store everything that is mutable in the array and use the script call for anything that isn't, like the name of the enemy. This allows for status effects like buffs to work properly.</p>
                 <p>Changing the enemy graphic dynamically turned out to be a pain. For some reason, it refuses to work if done in the spawn enemy event, but works if I make another call to it in another event. In the end, I settled for a workaround using event pages using <a href="http://himeworks.com/2013/03/event-page-conditions/">HimeWorks' Page Conditions</a> that ended up being a better solution! It still takes up event pages though, so I will need to watch out for the limit of 99.</p>
                 
-                <h3>To be Done Next</h3>
+                <h2>To be Done Next</h2>
                 <p>I still need to figure out how to randomize items completely. The items need to be distributed with weighted probabilities. I'll also need to fully conceptualize the crafting system. I'm thinking of splitting armor categories into Light/Medium/Heavy and have crafting materials that correspond to each category.</p>
                 <p>That's all for now. It's best to approach things piece by piece.</p>
                 

@@ -85,29 +85,31 @@ a.button-reversed:hover {
 }
 
 h1 {
-	font-size:2.4em;
-}
-h2 {
-	color:#2f2f2f;
-	font-size:1.8em;
+    color:#2f2f2f;
+    font-size:2.4em;
 	font-weight:bold;
 	padding:0 0 5px;
 	margin:0;
 }
-h3 {
+h2 {
 	color:#b99831;
-	font-size:1.6em;
+	font-size:1.8em;
+    padding-bottom:10px;
+}
+h3 {
+	color:#666666;
+    font-size:1.6em;
 	padding-bottom:10px;
 }
 h4 {
+	color:#666666;
+    font-size:1.4em;
 	padding-bottom:10px;
-	font-size:1.4em;
-	color:#000;
 }
 h5 {
-	padding-bottom:10px;
-	font-size:1.2em;
 	color:#666666;
+    font-size:1.2em;
+	padding-bottom:10px;
 }
 ul, ol {
 	margin:0 0 35px 35px;
@@ -131,7 +133,7 @@ div#wrapper {
 
 /** header **/
 header {
-	padding:30px 17px 30px;
+	padding: 15px;
 	margin:0 auto;
     text-align: center;
 }
@@ -201,12 +203,6 @@ article {
     padding: 10px 10px 30px;
 	font-size: 1.2em;
     overflow: auto;
-}
-article h2 {
-    padding-bottom: 0;
-	line-height: 1.1em;
-	letter-spacing: -2px;
-    font-size: 2.5em;
 }
 article .article-info {
     color: #C0c0c0;

@@ -45,7 +45,7 @@ License: Creative Commons Attribution
             </nav>
             <footer>
                 <p>&copy; 2017 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
-                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.png"><img></a></div>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
                 <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
             </footer>
         </aside>
@@ -53,33 +53,33 @@ License: Creative Commons Attribution
         <section id="content" class="column-right">
             <article>
                 <img src="images/fishing/banner.jpg" style='float: right; max-width: 100%; height: auto; padding: 10px;'/>
-                <h2>Evented Fishing System in RPG Maker VX Ace</h2>
+                <h1>Evented Fishing System in RPG Maker VX Ace</h1>
                 <div class="article-info">Posted on <time datetime="2017-12-13">March 9, 2018</time> by <b>Henry Pan</b></div>
                 <h4>Difficulty: Easy</h4>
                 <h5>Function: Press the correct key during the required timeframe to succeed.</h5>
                 
-                <h3>Introduction</h3>
+                <h2>Introduction</h2>
                 <p>This is a tutorial on making an evented fishing system (or any sort of reflex event), as seen in <a href="https://www.xehryn.com/gop">Gate of Providence</a>!</p>
                 <p>Interact with a fishing spot and press the Z key when the exclamation balloon appears to reel in a fish.</p>
                 <p>Because this system is evented, it is possible to use this in other RPG Maker versions, with some modifications to script calls.</p>
                 
-                <h3>Parallel Event Bug Fix</h3>
+                <h2>Parallel Event Bug Fix</h2>
                 <p>Before we get started with the eventing, we must fix a bug that is included with RPG Maker VX Ace. First, open the <b>Script Editor</b>. Find <b>Game_Interpreter</b> and go to line 106. Comment out <i>Fiber.yield</i> and paste <i>Fiber.yield</i> on the line below <i>@fiber = nil</i>. This essentially swaps the two lines and is required for this system to work. Without this fix, button inputs would feel unresponsive.
                 </p><p><img src="images/fishing/fiber yield.png" style="max-width: 483px; width:100%"/></p>
                 
-                <h3>The Gist</h3>
+                <h2>The Gist</h2>
                 <p>We'll be setting up a common event named "Fishing". Our fishing spots will be events that consist of two pages: one to catch the fish and one to respawn the event. The event will only determine the fish that be caught and call the common event, making it easy to copy and paste the event many times.</p>
                 
-                <h3>Setting up the Database</h3>
+                <h2>Setting up the Database</h2>
                 <p>In the items tab of the Database, create your items for the fishing rod and the fish. Then create a new Common Event.
                 </p><p><img src="images/fishing/fish rod.png" style="max-width: 348px; width:100%"/><img src="images/fishing/fish.png" style="max-width: 348px; width:100%"/></p>
                 
-                <h3>Part 1: Item Check</h3>
+                <h2>Part 1: Item Check</h2>
                 <h5>You may skip this step if the player isn't required to have any items to start fishing.</h5>
                 <p>We need to make sure the player has the necessary items to start fishing. Simply make a Conditional Branch (check "Set handling when conditions do not apply") and check to see the required item is in the inventory. You can add some text, show choices, and change the player's graphic to make it look nice.</p>
                 <p></p><p><img src="images/fishing/conditional.png" style="max-width: 402px; width:100%"/></p>
                 
-                <h3>Part 2: Reflex</h3>
+                <h2>Part 2: Reflex</h2>
                 <p>This is the meat of the system.<br>First, we will be implementing the time period right after the player begins fishing and before the fish bites.<br>Inside the conditional branch, set a Variable (fish wait) to a random number between 60 to 200. You can adjust the range of the numbers to change the duration.
                 </p><p><img src="images/fishing/fish wait.png" style="max-width: 424px; width:100%"/></p>
                 <p>Now create a loop. Inside the loop, add a conditional branch (check "Set handling when conditions do not apply") that checks for the script call <i>Input.trigger?(:C)</i>. This will check for player input, namely the C button (Z Key). This branch handles the events that occur when the player reels in too early.
@@ -91,25 +91,25 @@ License: Creative Commons Attribution
                 </p>
                 </p><p><img src="images/fishing/reflex 2.png" style="max-width: 681px; width:100%"/></p>
                 
-                <h3>Part 3: Rewards</h3>
+                <h2>Part 3: Rewards</h2>
                 <p>We will need to determine what the player will catch. Outside the loop, add a conditional branch (checked) to check if a variable (fish ID) is equal to 0. We will be setting this variable in the events later. You can add more conditional branches to check for different types of fish. Inside the branch, give the player the fish with Change Items. If you only have one kind of fish, you can just remove all the conditional branches and just give the fish. Here's what it could look like:
                 </p><p><img src="images/fishing/reward.png" style="max-width: 680px; width:100%"/></p>
                 
-                <h3>Creating the Event(s)</h3>
+                <h2>Creating the Event(s)</h2>
                 <p>Create an event with <i>Priority: Same as Players</i> and <i>Trigger: Action Button</i>. In the event page, set variable (fish ID) to a number that corresponds to the rewards in the previous part and then call the fishing common event.
                 </p><p><img src="images/fishing/fish event 1.png" style="max-width: 858px; width:100%"/></p>
                 <p>For the second page, check Self-Switch A, set the graphic to (None), Trigger to Parallel Process. In the event page, Wait however long is needed and set Self-Switch A to OFF. This will respawn the fishing spot after waiting a bit.
                 </p><img src="images/fishing/fish event 2.png" style="max-width: 858px; width:100%"/></p>
                 <p>You can now copy and paste this event as much as you like. Make sure to change the (fish ID) variable if you want different kinds of fish.</p>
                 
-                <h3>Final Result</h3>
+                <h2>Final Result</h2>
                 <p>Here's how the common event looks after it is complete.</p>
                 <p><img src="images/fishing/final.png" style="max-width: 610px; width:100%"/></p>
                 
-                <h3>Conclusion</h3>
+                <h2>Conclusion</h2>
                 <p>I hope this tutorial was helpful. This may not be the most efficient way to make a fishing system but it works well. It is easy to add to this system, for example you could do things like: randomized fish, items that modify bite time, fishing regions, etc.</p>
 
-                <h3>Credits</h3>
+                <h2>Credits</h2>
                 <a href="https://forums.rpgmakerweb.com/index.php?threads/parallel-process-events-execution-bug-fix.36786/">SOURCE</a> for discovering the parallel event bug.
                 
                 <br><br><hr><br>
