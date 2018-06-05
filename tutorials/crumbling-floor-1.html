@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108805625-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Studio Xehryn | Tutorials</title>
+<meta property="og:image" content="https://www.xehryn.com/tutorials/images/cf1/banner.png" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--
+anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+
+    <section id="body" class="width">
+        <aside id="sidebar" class="column-left">
+			<header>
+				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
+                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
+                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
+            </header>
+            <div class="mobile-menu-nav" id="mobile-menu-nav">
+            <nav id="mainnav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li class="selected-item"><a href="/tutorials">Tutorials</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
+                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            </footer>
+            </div>
+        </aside>
+
+        <section id="content" class="column-right">
+            <article>
+                <img src="images/cf1/banner.png" style='float: right; max-width: 100%; height: auto; padding: 10px;'/>
+                <h1>Crumbling Floor Puzzle (Turn-Based) in RPG Maker VX Ace and MV</h1>
+                <div class="article-info">Posted on <time datetime="2017-12-13">June 4, 2018</time> by <b>Henry Pan</b></div>
+                <h4>Difficulty: Easy</h4>
+                <h5>Function: A puzzle that triggers an event when all tiles have been stepped on.</h5>
+                <h5>Demo: <a href="downloads/Crumbling Floor 1.zip">Click here to Download</a></h5>
+                
+                <h2>Introduction</h2>
+                <p>This is a tutorial on making a turn-based crumbling floor puzzle, just like the <a href="https://bulbapedia.bulbagarden.net/wiki/Sootopolis_Gym">Sootopolis Gym</a> puzzle in Pokemon Ruby/Sapphire/Emerald. If you are not familiar with the puzzle, stepping on all the floor tiles will trigger an event, however each tile may only be stepped on once. Stepping on a tile twice will drop the player into another room.</p>
+                <p>Because this puzzle is made with events, it requires no additional scripts, making it is possible to use this in other RPG Maker versions with some modifications to script calls.</p>
+                <p>The demo (source code) is made available in the link above.</p>
+                
+                <h2>The Gist</h2>
+                <p>We'll be using multiple events to make this puzzle: the floor tiles, the controller, and the triggered event. The floor tiles are the tiles we need to step on to complete the puzzle. The controller will set up the puzzle so that it'll work. It will also check to see if all tiles have been stepped on, and if so, activates the triggered event. The triggered event is just a door, in this tutorial.</p>
+                
+                <h2>What We Will Need</h2>
+                <ul><li>4 Variables: Map ID, Map X, Map Y, Tiles Left</li><li>1 Switch: Trigger Event</li><li>2 Common Events: Fracture Tile, Fall</li><li>2 Maps: Main Room, Basement</li><li>Graphics: Cracked Floor and Hole Sprites (included in the demo, link above)</li><li>(For MV users) A method to reset self-switches</li></ul>
+                
+                <h2>Making the Common Events</h2>
+                <p>The puzzle relies on a lot of copy/pasting of the floor tiles, so common events are the best choice here.</p>
+                <p>In the common events tab in the Database, make two new common events called "Fracture Tile" and "Fall". They do not have a trigger or a condition switch.</p>
+                <p>"Fracture Tile" is the event that occurs when the player steps onto a tile. In this case, we'll want to play a sound effect to let the player know what they've done, and set Self-Switch A to On. Then, decrement (subtract 1) the "Tiles Left" variable.</p>
+                <p><img src="images/cf1/common 1.png" style="max-width: 455px; width:100%"/></p>
+                <p>"Fall" is the event that occurs when the player steps onto a tile that has already been stepped on. Play your desired sound effects and set Self-Switch B to On. Fade out the screen. We will now need to reset all the self-switches so that the puzzle is reset. In <b>VX Ace</b>, the script call to do so is:
+<pre><code>(1..22).each do |event_id|
+    $game_self_switches[[@map_id, event_id, 'A']]
+    $game_self_switches[[@map_id, event_id, 'B']]
+end</code></pre>
+                This script call will reset Self-Switch A and Self-Switch B for events 1 through 22. Change the numbers to fit your own project accordingly. You will need to reset the tiles <b>AND the controller and triggered event!</b></p>
+                <p>For <b>MV users</b>: You can reset the self-switches with this:
+<pre><code>for (var event_id = 1; event_id < $dataMap.events.length; event_id++){
+    $gameSelfSwitches.setValue([$gameMap.mapId(), event_id, 'A'], false);
+    $gameSelfSwitches.setValue([$gameMap.mapId(), event_id, 'B'], false);
+}</code></pre>
+                This script call will reset all events' Self-Switch A and Self-Switch B.</p>
+
+                <p>After resetting the self-switches, you will also need to turn off the "Trigger Switch", in case the player stepped on all the tiles but failed to reach the trigger. Then, set the "Map X" and "Map Y" variables to Game Data -> Character -> Player's Map X/Y. Transfer the player with "Designation with variables" option and the variables "Map ID", "Map X", "Map Y". Fade in the screen.</p>
+                <p><img src="images/cf1/common 2.png" style="max-width: 455px; width:100%"/></p>
+                
+                <h2>Making the "Main Room" map</h2>
+                <h5>To make things easier, do not add any events until you have finished placing all the crumbling tiles.</h5>
+                <p>We'll be setting up the map now. Make the first map, "Main Room", and mark out the puzzle area first and <b>keep count of the number of tiles used as it will be used later</b>. In this tutorial, the puzzle area is designated by the ice tiles. You can put as many tiles as you like, but keep in mind that having too many events on a map causes lag, and also the player's feeling of tedium caused by failing the puzzle. When you are done, duplicate the map and keep in mind the ID of the duplicated map. This is the "Basement" map that the player will fall into if they fail the puzzle.</p>
+                <p><img src="images/cf1/mapid.png" style="max-width: 354px; width:100%"/></p>
+                
+                <h2>The Crumbling Floor Tile</h2>
+                <p>Create a new event: the floor tile. On the first page, set no graphic, check "Through", put Priority to "Below Characters", and Trigger to "Player Touch". In the contents, call Common Event "Fracture Tile".</p>
+                <p><img src="images/cf1/tile1.png" style="max-width: 588px; width:100%"/></p>
+                <p>On the second page, set the graphic to the cracked tile, check "Through, put Priority to "Below Characters", and Trigger to "Player Touch". Check for "Self-Switch A is ON" in the conditions. In the contents, set variable "Map ID" to the ID of the "Basement" map. Then call common event "Fall".</p>
+                <p><img src="images/cf1/tile2.png" style="max-width: 637px; width:100%"/></p>
+                <p>On the third page, set the graphic to the hole, check "Through, put Priority to "Below Characters", and Trigger to "Action Button". Check for "Self-Switch B is ON" in the conditions. You can leave everything else blank, as this page is purely graphical.</p>
+                <p><img src="images/cf1/tile3.png" style="max-width: 609px; width:100%"/></p>
+                <p>Here's what the map looks like so far, with just one event. The event we just made is on the bottom left corner of the puzzle area.</p>
+                <p><img src="images/cf1/map1.png" style="max-width: 393px; width:100%"/></p>
+                <p>Now, copy and paste this event on top of all the puzzle area.</p>
+                
+                <h2>The Controller Event</h2>
+                <p>Create a new event: the controller. Place it anywhere out of reach. On the first page, set no graphic, put Priority to "Below Characters", and Trigger to "Autorun". In the contents, set variable "Tiles Left" to how many tiles you used in the puzzle area. In this tutorial it is 20. Set Self-Switch A to ON.</p>
+                <p><img src="images/cf1/check1.png" style="max-width: 603px; width:100%"/></p>
+                <p>On the second page, set no graphic, put Priority to "Below Characters", and Trigger to "Parallel Process". Check for "Self-Switch A is ON" in the conditions. In the contents, make a conditional branch that checks if "Tile Left" is equal to 0. In the branch, play your sound effect, then trigger your triggered event. In this tutorial, it is a door, so we make the door animate. Set the switch "Trigger Event" to ON, and set Self-Switch B to ON. Outside of the branch, add a wait for 5 frames to help improve performance.</p>
+                <p><img src="images/cf1/check2.png" style="max-width: 671px; width:100%"/></p>
+                <p>On the third page, set no graphic, put Priority to "Below Characters", and Trigger to "Action Button". This effectively disables the controller, as the triggered event has already been activated.</p>
+                <p><img src="images/cf1/check3.png" style="max-width: 640px; width:100%"/></p>
+                
+                <h2>The Triggered Event</h2>
+                <p>Now that we have the controller done, we need to make the triggered event. It'll be a door in this case. The first page of the door doesn't have to be special.</p>
+                <p><img src="images/cf1/door1.png" style="max-width: 666px; width:100%"/></p>
+                <p>On the second page, set the opened door graphic, put Priority to "Below Characters", and Trigger to "Player Touch". Check for "Switch "Trigger Event" is ON" in the conditions. In the contents, handle transfer however you wish, then reset all the self-switches AND the "Trigger Event" switch.</p>
+                <p><img src="images/cf1/door2.png" style="max-width: 735px; width:100%"/></p>
+                
+                <h2>The Drop Zone: "Basement" map</h2>
+                <p>On the duplicated map, make sure the drop zone (the puzzle area from the "Main Room" map, marked in red in the picture below) is completely passable (i.e. nothing blocking movement). Change up the duplicated map as you like, but make sure that the drop zone does not move or gets shifted. Put a method of returning to the Main Room somewhere in this room. In this case, we used a ladder. Add transfers to both maps if you wish.</p>
+                <p><img src="images/cf1/map2.png" style="max-width: 412px; width:100%"/></p>
+                
+                
+                <h2>Final Result</h2>
+                <p>Here's how the Main Room looks after it is complete.</p>
+                <p><img src="images/cf1/map1-2.png" style="max-width: 393px; width:100%"/></p>
+                
+                <h2>Taking it Further</h2>
+                <p>You can add obstacles or open spaces to increase the depth of your puzzle. A good thing with this sort of puzzle is that it's possible for multiple solutions to form.</p>
+                <p>You could also make it thematically different, like using light/dark teleportation panels like in <a href="https://www.xehryn.com/gop">Gate of Providence</a>.</p>
+                
+                <h2>Conclusion</h2>
+                <p>I hope this tutorial was helpful. You are free to use this puzzle or any variation of it in your projects! Spice up your dungeons, but remember not to take it too far!</p>
+                
+                <br><br><hr><br>
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </article>
+        </section>
+
+	</section>
+	
+</body>
+</html>
