@@ -265,7 +265,27 @@ footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
     display: none;
 }
 
+.banner {
+    float: right;
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.banner-mini {
+    max-width: 100%;
+    width: 320px;
+    height: auto;
+    padding: 10px;
+}
+
 /** Responsive **/
+@media screen and (max-width: 1300px){
+    .banner { float: none; padding: 0px;}
+    .banner-mini { width: 256px;}
+    .youtube-container { float: none;}
+}
+
 @media screen and (max-width: 740px) {
 	body { font-size: 0.9em; }	
 	.width { width:auto; padding-left: 10px; padding-right: 10px; }
@@ -276,6 +296,7 @@ footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
     .timeline { display: none;}
     .mobile-menu { display: inline;}
     .mobile-menu-nav { display: none;}
+    .banner-mini { width: 192px;}
 }
 
 @media screen and (max-width: 540px) {
@@ -286,4 +307,5 @@ footer p a:hover { color:#aaaaaa; border-bottom-color: #aaaaaa; }
     .timeline { display: none;}
     .mobile-menu { display: inline;}
     .mobile-menu-nav { display: none;}
+    .banner-mini { width: 128px;}
 }
