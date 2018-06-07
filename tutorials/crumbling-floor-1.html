@@ -87,16 +87,16 @@ License: Creative Commons Attribution
                 <p>"Fall" is the event that occurs when the player steps onto a tile that has already been stepped on. Play your desired sound effects and set Self-Switch B to On. This will show the hole graphic beneath the player. Then, fade out the screen so that the player does not see events reverting. Set Self-Switch B to Off. Call the common event "Reset Puzzle". Then, set the "Map X" and "Map Y" variables to Game Data -> Character -> Player's Map X/Y. Transfer the player with "Designation with variables" option and the variables "Destination Map ID", "Map X", "Map Y". Fade in the screen.</p>
                 <p><img src="images/cf1/common 2.png" style="max-width: 436px; width:100%"/></p>
                 <h3>Reset Puzzle</h3>
-                <p>"Reset Puzzle" is the common event called by "Fall" and other events that reset the puzzle. We will be resetting all the self-switches so that the puzzle is reset. In <b>VX Ace</b>, the script call to do so is:
+                <p>"Reset Puzzle" is the common event called by "Fall" and other events that reset the puzzle. We will be resetting all the self-switches so that the puzzle is reset. In <b>VX Ace</b>, the script call to do so is:</p>
 <pre><code>(1..21).each do |event_id|
     $game_self_switches[[@map_id, event_id, 'A']]
 end</code></pre>
-                This script call will reset Self-Switch A for events 1 through 21. Change the numbers to fit your own project accordingly. You will need to reset the tiles <b>AND the controller!</b> In this tutorial, the crumbling floor tiles are events 1 through 20, and the controller is event 21.</p>
-                <p>For <b>MV users</b>: You can reset the self-switches with this:
+                <p>This script call will reset Self-Switch A for events 1 through 21. Change the numbers to fit your own project accordingly. You will need to reset the tiles <b>AND the controller!</b> In this tutorial, the crumbling floor tiles are events 1 through 20, and the controller is event 21.</p>
+                <p>For <b>MV users</b>: You can reset the self-switches with this:</p>
 <pre><code>for (var event_id = 1; event_id <= 21; event_id++){
     $gameSelfSwitches.setValue([$gameMap.mapId(), event_id, 'A'], false);
 }</code></pre>
-                This script call will reset Self-Switch A for events 1 through 21. Remember to change the numbers and include the controller.</p>
+                <p>This script call will reset Self-Switch A for events 1 through 21. Remember to change the numbers and include the controller.</p>
                 <p>After resetting the self-switches, you will also need to turn off the switch "Trigger Event", in case the player stepped on all the tiles but failed to reach the trigger.</p>
                 <p>Alternatively, if you have a script/plugin that resets events, you can use that instead.</p>
                 <p><img src="images/cf1/common 3.png" style="max-width: 436px; width:100%"/></p>
