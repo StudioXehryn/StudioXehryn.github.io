@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108805625-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Studio Xehryn | Tutorials</title>
+<meta property="og:image" content="https://www.xehryn.com/tutorials/images/spritesheets/banner.png" />
+<meta name="twitter:card" content="summary_large_image"></meta>
+<meta name="twitter:site" content="@StudioXehryn"></meta>
+<meta name="twitter:creator" content="@StudioXehryn"></meta>
+<meta name="twitter:title" content="Character Spritesheets and Animations"></meta>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--
+anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+
+    <section id="body" class="width">
+        <aside id="sidebar" class="column-left">
+			<header>
+				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
+                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
+                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
+            </header>
+            <div class="mobile-menu-nav" id="mobile-menu-nav">
+            <nav id="mainnav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li class="selected-item"><a href="/tutorials">Tutorials</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
+                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            </footer>
+            </div>
+        </aside>
+
+        <section id="content" class="column-right">
+            <article>
+                <img src="images/spritesheets/banner.png" class="banner"/>
+                <h1>Character Spritesheets and Animations</h1>
+                <div class="article-info">Posted on <time datetime="2018-07-03">July 3, 2018</time> by <b>Henry Pan</b></div>
+                <h3>Engine: RPG Maker VX Ace and MV</h3>
+                <h4>Difficulty: Easy</h4>
+                <h5>Function: Explanation on how character/spritesheets work in RPG Maker VX Ace and MV.</h5>
+                
+                <h2>Introduction</h2>
+                <p>Many new makers, often artists, have difficulty making their custom artwork function properly in Ace/MV. They face issues like sprites cutting off, or the editor only displaying a tiny piece of their sprite. This tutorial aims to clear up any confusion or misconceptions surrounding sprites.</p>
+                <h5>This tutorial only focuses on the default behavior of the program, without the use of any external plugins or scripts. Eight directional / diagonal sprites are not covered.</h5>
+                
+                <h2>Anatomy of a Spritesheet</h2>
+                <p><img src="images/spritesheets/anatomy.png" style="max-width: 584px; width:100%;"/></p>
+                <p>Each spritesheet can divided into three components. (Disclaimer: These are my own terminology, used for this tutorial, and may not be the same as other people's!)</p>
+                
+                <h3>Sprite</h3>
+                <p>Refers to a single character sprite. They can be any size (N pixels x M pixels), but keep in mind that the standard map tile size is 32px x 32px in VX Ace and 48px x 48px in MV. It is important to note that any transparent pixels will count towards the sprite's size.</p>
+                <p><img src="images/spritesheets/padding.png" style="max-width: 450px; width:100%;"/></p>
+                <p>Notice the size difference with these two sprites. If you are using sprites that protrude in a certain direction, you need to pad ALL the sprites with transparent pixels so they will line up properly.</p>
+                
+                <h3>Character</h3>
+                <p>Refers to the entire set of sprites that makes up a single character. There are <b>exactly</b> twelve Sprites in a Character: four rows (directions) and three columns (frames of animation). They all must be the same size as well.</p>
+                <p><img src="images/spritesheets/step.png" style="max-width: 96px; width:100%;"/></p>
+                <p>Walking/stepping animations go like this: Middle -> Right -> Middle -> Left -> Middle. The Middle sprite is used for event standing still. Any unused directions/animation frames can be left blank.<br>Characters can also be saved as an individual file, see the <b>Filename Prefixes</b> below for more details.</p>
+                
+                <h3>Sheet</h3>
+                <p>Refers to the entire set of characters. There are <b>exactly</b> eight Characters in a sheet with 2 rows and 4 columns, but you do not have to fill out the entire sheet! You can leave unused character spots blank.<br>In the picture above, the numbers are the indices of the graphics, which are used with event commands or scripts.</p>
+
+                <h2>Filename Prefixes</h2>
+                <p>There are two special prefixes you can put on the filename: the "!" and "$". These are attached to the beginning of the filename, for example, if your file is <b><i>sprite.png</i></b>, change it to <b><i>!sprite.png</i></b>. You can also combine both prefixes, like so: <b><i>!$sprite.png</i></b>.</p>
+                
+                <h3>The "!" Prefix</h3>
+                <p><img src="images/spritesheets/offset.png" style="max-width: 370px; width:100%;"/></p>
+                <p>Characters graphics in-game are offset (moved) up by four pixels. Adding the "!" prefix will cancel this effect. This also turns off the translucent effect that occurs when the event is standing on a tile marked as "Bush" in the tileset section of the database. This is good for object events such as doors, chests, or furniture.</p>
+                
+                <h3>The "$" Prefix</h3>
+                <p><img src="images/spritesheets/singular.png" style="max-width: 216px; width:100%;"/></p>
+                <p>It is possible to have a file with just one character by attaching "$" to the beginning of the filename. Do not add the "$" if there are multiple characters in the file!</p>
+                
+                <h2>Multi-frame Animations</h2>
+                <p><img src="images/spritesheets/multi1.png" style="max-width: 400px; width:100%;"/></p>
+                <p>You can have multiple frames of animation by utilizing the "Set Move Route" event command. By turning, the sprite will advance through each frame of animation. You can change the speed of the animation by changing the wait between each turn. This is made apparent by studying the default door graphics.</p>
+                <p><img src="images/spritesheets/multi2.png" style="max-width: 576px; width:100%;"/></p>
+                <p>You can get more frames by using the "Change Graphic" move route command. With this method, you can have 32 frames of animation on a single spritesheet file, and with multiple files, nearly unlimited frames of animation!</p>
+                
+                <h2>Double-Checking Your Spritesheets</h2>
+                <p>Make sure that your sheet can only fit eight Characters. For every Character, the twelve Sprites are of identical size.<br>For example, if the size of a Sprite is 32px x 32px, the Character would be 96px x 128px, and the Sheet would be 384px x 256px.</p>
+                
+                <h2>Conclusion</h2>
+                <p>I hope this tutorial was helpful. If I missed anything, or if something is unclear, please let me know.</p>
+                
+                <br><br><hr><br>
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </article>
+        </section>
+
+	</section>
+	
+</body>
+</html>
