@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108805625-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--
+anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/6-banner.png" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@StudioXehryn">
+<meta name="twitter:creator" content="@StudioXehryn">
+<meta name="twitter:title" content="End of Windra's Endgame - Blog | Studio Xehryn">
+<title>End of Windra's Endgame - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <section id="body" class="width">
+        <aside id="sidebar" class="column-left">
+			<header>
+				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
+                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
+                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
+            </header>
+            <div class="mobile-menu-nav" id="mobile-menu-nav">
+            <nav id="mainnav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li><a href="/tutorials">Tutorials</a></li>
+                    <li class="selected-item"><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
+                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            </footer>
+            </div>
+        </aside>
+
+        <section id="content" class="column-right">
+            <article>
+                <img src="images/banners/6-banner.png" class="banner"/>
+                <h1>End of Windra's Endgame</h1>
+                <div class="article-info">Posted on <time datetime="2018-07-05">July 5, 2018</time> by <b>Henry Pan</b></div>
+                
+                <h2>Recent Events</h2>
+                <p><b>Gate of Providence</b> v1.0.3 has been released. It has reached a total of 10k+ views and 600+ downloads! I am currently writing a post-mortem on it, so expect it soon.</p>
+                <p>I also finally purchased RPG Maker MV during the Steam Summer Sale. I won't be porting any of my finished or in-progress VX Ace projects over, but I will probably make something with it in the future.</p>
+
+                <h2>Project Roguelike Update</h2>
+                <div class="youtube-container" style="float:none">
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/668kEo_ycJE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                </div>
+                <p>A glimpse of what the character creation screen will look like is in this video. I actually posted this video a long time ago, but neglected to post a follow-up devblog. Players will be able to select hairstyles for their front/rear hair, colors for front/rear, eye colors and accessories, skin tone and gender, and origin, which affects starting stats and items. Players can also randomize these options to get bizarre looking characters, which I know some people love to do. At the moment, there's an issue with framerate, which I will resolve eventually.</p>
+                
+                <h2>Windra's Endgame Update</h2>
+                <p>I am stopping development of Windra's Endgame, for various reasons I will go over here on this blog post.</p>
+                
+                <h2>Graphical Glitches</h2>
+                <p><img src="images/6/wall1.png" style="max-width: 640px; width:100%" alt="Graphical bug"/> <img src="images/6/wall2.png" style="max-width: 640px; width:100%" alt="Graphical bug"/></p>
+                <p>Various graphical glitches remain unresolved, or rather, unresolvable. Because the game uses an external DLL, I do not have access to the source code and cannot attempt to fix these issues. These issues were present in the original demo of the FPLE DLL, but I only noticed them too late into development.<br>In the first picture, you can see that all walls on the left are missing a whole row of pixels on the top and bottom. This wouldn't be immediately obvious if it weren't for the edge pixels jutting out. This occurs for all walls on the left side of the camera.<br>In the second (and the first, if you look closely) picture, you can see a black line on the edge of the tile. This only occurs on corner tiles, but it is noticeable. On this map, it might not be too bad, but on other maps that more colorful, it stands out significantly.</p>
+
+                <h2>Random and Constant Crashing</h2>
+                <p><img src="images/6/crash.png" style="max-width: 640px; width:100%" alt="A game crash"/></p>
+                <p>Also resulting from the DLL are constant random crashes. These aren't script errors, but rather DLL errors. The crash report doesn't tell me anything too useful, and even if it did I wouldn't be able to fix them due to the lack of source code. It's possible to crash the game by just moving around, or even <b>standing still for too long</b>, likely due to a memory leak of some sort. The developer of the DLL seemed to have disappeared (last update was in 2015) so it's unlikely there will be a fix for these issues. I tried to work around these issues by having the game autosave, but in the end, I would rather not release an unstable game.</p>
+                
+                <h2>Gameplay</h2>
+                <p>After continuous playtesting with what was working, I realized that the game just wasn't fun for me. A big part of why I wanted to make this game in the first place was the first-person dungeon exploration system. It's a novel mechanic for RPG Maker, but an engine like Unity could easily make it. It seems pointless now to wrangle RPG Maker into making fake 3D when I could just use Unity for real 3D, without all the hassle. (That being said, I have yet to make anything with Unity. That will change in the future.)</p>
+
+                <h2>The Plus Side</h2>
+                <p>On the plus side, all the scripts and script modifications I wrote for this game could be reused for my other projects, <b>Rondo of Wizardry and Love</b> and <b>Project Roguelike</b>. This also freed up some art assets and story concepts, which I don't like to reuse, for use in future works. I also got some more practice with balancing and game design.</p>
+                
+                <h2>What's Next for Studio Xehryn</h2>
+                <p><b>Windra's Endgame</b>, with its current mechanics, is effectively cancelled. I may revisit this game as a different project in the future. All links to the game's page will also be removed.</p>
+                <p><b>Project Roguelike</b> will slowly be worked on, but it is a game I look forward to completing.</p>
+                <p>What will definitely be completed is <b>Rondo of Wizardry and Love</b>. Currently, there is no release date, but I am as invested in this game as I was <b>Gate of Providence</b>, so it will be completed no matter how long it will take. Now that I'm more experienced, it should not take as long as <b>Gate of Providence</b> did.</p>
+                
+                
+                <br><br><hr><br>
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </article>
+        </section>
+
+	</section>
+	
+</body>
+</html>
