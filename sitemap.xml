@@ -30,15 +30,15 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.xehryn.com/we/</loc>
-  <priority>1.00</priority>
-</url>
-<url>
   <loc>https://www.xehryn.com/tutorials/evented-fishing</loc>
   <priority>0.40</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/tutorials/crumbling-floor-1</loc>
+  <priority>0.40</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/tutorials/spritesheets</loc>
   <priority>0.40</priority>
 </url>
 <url>
@@ -59,6 +59,10 @@
 </url>
 <url>
   <loc>https://www.xehryn.com/blog/5</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/blog/6</loc>
   <priority>0.30</priority>
 </url>
 <url>
