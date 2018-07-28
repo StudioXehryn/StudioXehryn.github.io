@@ -31,15 +31,15 @@
 </url>
 <url>
   <loc>https://www.xehryn.com/tutorials/evented-fishing</loc>
-  <priority>0.40</priority>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/tutorials/crumbling-floor-1</loc>
-  <priority>0.40</priority>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/tutorials/spritesheets</loc>
-  <priority>0.40</priority>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/blog/1</loc>
@@ -70,8 +70,12 @@
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.xehryn.com/blog/patchnotes-gop</loc>
+  <loc>https://www.xehryn.com/blog/8</loc>
   <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/blog/patchnotes-gop</loc>
+  <priority>0.40</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/blog/postmortem-dd</loc>
@@ -99,7 +103,7 @@
 </url>
 <url>
   <loc>https://www.xehryn.com/gop/guide-dragon</loc>
-  <priority>0.50</priority>
+  <priority>0.30</priority>
 </url>
 <url>
   <loc>https://www.xehryn.com/gop/guide-fishing</loc>
