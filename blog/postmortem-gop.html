@@ -24,12 +24,12 @@ Download: http://zypopwebtemplates.com/
 License: Creative Commons Attribution
 //-->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/gate-of-providence-banner.jpg" />
+<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/gate-of-providence-postmortem.png" />
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@StudioXehryn">
 <meta name="twitter:creator" content="@StudioXehryn">
-<meta name="twitter:title" content="Gate of Providence - Postmortem - Blog | Studio Xehryn">
-<title>Gate of Providence - Postmortem - Blog | Studio Xehryn</title>
+<meta name="twitter:title" content="The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn">
+<title>The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn</title>
 </head>
 
 <body>
@@ -60,14 +60,64 @@ License: Creative Commons Attribution
 
         <section id="content" class="column-right">
             <article>
-                <img src="images/banners/gate-of-providence-banner.jpg" alt="Gate of Providence" class="banner"/>
-                <h1>Gate of Providence - Postmortem</h1>
-                <div class="article-info">Posted on <time datetime="2018-06-01">June 1, 2018</time> by <b>Henry Pan</b></div>
-                <p>Post under construction. There'll be something here after the full release.</p>
-                <h2>What Went Wrong</h2>
+                <img src="images/banners/gate-of-providence-postmortem.png" alt="Gate of Providence" class="banner"/>
+                <h1>The Gate Closes: A Postmortem on Gate of Providence</h1>
+                <div class="article-info">Posted on <time datetime="2018-07-31">July 31, 2018</time> by <b>Henry Pan</b></div>
+                <p>It's been eight months after the release of <b>Gate of Providence</b>. During this time, the game has received over 12000 views and 680 downloads. As usual for a postmortem, I'll be writing about what went right and wrong during the development of <b>Gate of Providence</b>, as well as some other thoughts.</p>
+                <h2>What Went Wrong</h2>                
+                <h3>Combat Balancing and Difficulty Levels</h3>
+                <p>Balancing an RPG is always tricky. Players tend to find a combination of skills they like and stick with them. The problem with this is that players that chose only to use attacking skills would find themselves having trouble near the end of the game, when the level cap is reached, where status effects and debuffs have a bigger impact. On higher difficulties, defensive skills and items become important and in some cases, required. On the other hand, some players would find a really good combo and use only that combo for the entire game, making combat unengaging. Players would either breeze through or get completely obliterated. It becomes hard to tell if a player just has a bad strategy or if the enemies have too high stats.</p>
+                <p>After some feedback, adjustments to difficulty were made, resulting in the game becoming easier overall. In the end, I feel that this is the better approach for <b>Gate of Providence</b>. I'd rather not have a player take over twenty minutes in a single battle (it has happened) because of a poor moveset and difficulty level.</p>
+                
+                <h3>Difficulties with Art and Artstyle</h3>
+                <p>There are notable inconsistencies with the art, with face portraits in particular. This is because the main characters (Jun, Ne'l, Theresa, etc.) were drawn by an actual artist, my friend David, while the villagers and side characters were drawn by me. Art is something I definitely need to improve on. In addition, the battler art was done by two people, with Providence members having one artist and everything else by another.</p>
+                <p>Another issue is with the RTP-styled sprites and tiles. While I make no attempt to hide the fact that <b>Gate of Providence</b> is a RPG Maker game, the reputation of the RTP makes the game look bad. Even though the game does contain a lot of custom tiles (by the community) and sprites (by me), to the eyes of someone not in the RPG Maker community, it looks the same as the garbage low-effort games you'd see on Steam. It's a shame because I actually like the RTP style, since it reminds me of the GBA-era Pokemon games.</p>
+
+                <h3>Online Presence and Target Audience</h3>
+                <p><b>Gate of Providence</b> had essentially no marketing or online presence. People would only see the occasional screenshot in the weekly screenshot thread on r/rpgmaker. The trailer was made after the game was already completed, resulting in little to no hype. The website, twitter account, and devblog did not exist either. This was mostly because all my time was devoted towards developing the game itself. I still need to work on this, as evident by my very infrequent devblog posts.</p>
+                <p>The game was also exclusively marketed towards the RPG Maker community, mainly because of the RTP sentiment. For the most part, I feel the game has done okay with views/downloads, but the amount of feedback I got was disappointing. The forum thread I posted on rpgmakerweb has been viewed 1200+ times, but it does not have a single reply. Analytics from itch.io show that the game is being downloaded via rpgmakerweb referral, but I don't know how far people are getting into the game. The entry on rpgmaker.net was much better, though many comments were about not being able to run the game due to missing DirectX or some other dependency, which honestly was quite a shock. Even my grandpa's computer has those required files already installed!</p>
+                
+                
                 <h2>What Went Right</h2>
+                <h3>Completion</h3>
+                <p>The completion of <b>Gate of Providence</b> marks an important milestone for me personally. It is my first large/epic project that has attained completion. <b>Dreamshot Dissonance</b> was my actual first complete game, but that was required for a class. <b>Gate of Providence</b> was created on my own volition, with no pressure like grades or monetary gain driving me to finish the game.</p>
+                <p>Creating the game took three years. In those years, I was able to practice game design, level design and mapping, balancing, programming, art (digital and pixel), writing, and worldbuilding.</p>
+                
+                <h3>Worldbuilding</h3>
+                <p>Many players enjoyed the worldbuilding and lore. This game was my first attempt at creating a world and I feel I did a decent job. It was fun writing lore books, even though not many people actually read them. They made the world feel bigger as they lay out the history of the world and other topics that non-player characters would not normally talk about in daily conversations. (When was the last time YOU casually talked about a historical event outside of an academic setting?) Players liked the down-to-earth feeling of the world as well, with much of the game being low-stakes.</p>
+                
+                <h3>Combat / Anima System</h3>
+                <p>The combat system has also received some praise from players. For those who have not played the game yet, combat in <b>Gate of Providence</b> focuses on using skills that spend a resource called Anima. Every skill has a period of turns that the skill cannot be used again after being used, called Cooldown. Players can pick and choose skills they want to bring into battle. This lets players come up with their own strategies to suit their preferences. This diverges from the standard JRPG-style combat, where players focus on the "Attack" command and use skills only when needed (pretty much against bosses) to conserve MP. Since Anima resets every battle, there is no point in conserving for the long-term, so players can go all out with skills.</p>
+                <p>What I should have done was remove the "Attack" command completely. It was included to ease players coming from a JRPG background into the Anima combat system, but it led to some players using "Attack" continuously without realizing that it was not meant to be used frequently. For the sequel, I will follow through with removing the basic attack.</p>
+                
+                
                 <h2>Other Thoughts</h2>
+                <h3>Experimental Development, Large Projects, and Scope</h3>
+                <p><b>Gate of Providence</b> was originally made as a test game when I learning how to use RPG Maker VX Ace. After making a minimum viable product (MVP), I expanded the game to include more features, such as puzzles and a deeper combat system. You can see this by the various amount of puzzles that exist in the game, such as crumbling floors, logic gates, Simon, tile flipping, stealth, etc. This was also how the "Mercenary Request" system came to be, where the majority of the gameplay comes from quests from villagers.</p>
+                <p>After finishing an aspect of the game, the scope of the game was expanded to fit more content. The scope of the game kept on growing, and I kept on adding quests and puzzles. The game ended up being super long, even without combat padding game time. Many parts of the game were done, scrapped, and redone. Eria and the main quest, in particular, was made three times. All building interiors were redone as well, to incorporate a new tileset.</p>
+                
+                <h3>Game Length</h3>
+                <p>I feel a lot of people are put off by the length of the game. Nowadays not many people are willing to spend tens of hours into an one-off game, let alone an indie game no one knows about. I will not be making long games again, mainly for this reason, but also because it takes a long time to develop. My target length would be around 4-5 hours maximum, which is about 2-3 movies worth of time.</p>
+                <p>This game took too long to make. Time spent on making a game does not equal quality, and also making shorter games also means I could make more games. Of course, there's "quality over quantity" but it's not like you can't try for both.</p>
+                
+                <h3>Unfinished Stories and Cryptic Content</h3>
+                <p>One aspect of the game players disliked was Theresa and her quests. Players felt that she was only there to be cute and her quests didn't have any importance. This is not the intention - Theresa and her story was just poorly implemented. Her story ended up being WAY too cryptic. It was meant to be foreshadowing something big in games to come, but it didn't work out. I hope to retify this with a sequel, which will focus more on Theresa and her importance to the overall storyline.</p>
+                
+                <h3>Save Points</h3>
+                <p>Players could only save at designated save points (save statues) that also acted as fast travel beacons. They were good for making the player explore the world, but it also meant that players would have to redo some progress if they got a game over. They also prevented the player from softlocking themselves if they couldn't figure out a puzzle or beat an enemy. However, the enemies and puzzles ended up not being hard enough to warrant having save points. This is a feature I will most likely not include in future games.</p>
+                
+                <h3>Grinding and Crafting Systems</h3>
+                <p>Balancing a grindy aspect of the game is difficult, because everyone has different patience levels. Making an activity grindy but rewarding could mean more people will do it, but those with a lot of patience will be rewarded greatly. A Let's Player demonstrated this when he discovered the ore rocks in Elysian Forest, the very first area of the game. Before even starting the quest to liberate the Residential District (which essentially opens up the rest of the game), he grinded for around 40 minutes, acquiring over 80 copper and 80 tin (materials for bronze bars, which needs to mined individually), 50 wolf pelts, and gems worth 790K gold (1M is the max gold cap)! Later in the game, he discovered the games room and proceeded to play until he bought 99 (max stack) of EVERYTHING in the rewards shop. The result was that he had no troubles with gold for the rest of the game, and he was able to afford any item he wanted. My expectation was that people would only gather materials when they needed some, and fight enemies only because they were caught. The rewards were balanced for this situation and as a result people who actually grinded made everything too easy. A possible solution would be some sort of anti-grind mechanic, but I felt it wouldn't be fair to punish people for just playing my game for extended periods of time.</p>
+                <p>Crafting systems allow for an optional grind. Players could gather materials and make equipment and items, saving themselves gold or even making gold if they decide to sell the crafted goods. However, I feel crafting systems have been overdone, especially in RPG Maker games which add them just to have them. It works okay for <b>Gate of Providence</b> because it is sort of an open world game, but for most games I don't think they have a place. I think crafting in <b>Gate of Providence</b> could be improved further if I incorporated monster loot into crafting recipes, and revamped methods of gathering raw materials.</p>
+                
+                <h3>Sequel Talk</h3>
+                <p>I talked about a potential sequel multiple times in this postmortem. While not totally confirmed, it is something I'm highly considering. A rough story concept has been drafted. It'll probably be made after I release 3-4 other games. Gameplay-wise, it will focus more on battles and a main story, and less on puzzles and sidequests. It will also not be as open world as <b>Gate of Providence</b> was, and will likely not have any sort of crafting. More importance will be placed on Gold and shops.</p>
+                
                 <h2>Conclusion</h2>
+                <p>The development of <b>Gate of Providence</b> has truly been a journey. This massive undertaking has provided everyone involved with lots of experience, and I hope that our future games will be as good, if not better than <b>Gate of Providence</b>. Stay tuned and thanks for reading!</p>
+                
+                <br><br><hr><br>
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
             </article>
         </section>
 
