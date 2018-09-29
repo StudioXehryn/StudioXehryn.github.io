@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108805625-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--
+anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/9-banner.png" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@StudioXehryn">
+<meta name="twitter:creator" content="@StudioXehryn">
+<meta name="twitter:title" content="Project Roguelike: Randomized Loot Drops - Blog | Studio Xehryn">
+<title>Project Roguelike: Randomized Loot Drops - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <section id="body" class="width">
+        <aside id="sidebar" class="column-left">
+			<header>
+				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
+                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
+                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
+            </header>
+            <div class="mobile-menu-nav" id="mobile-menu-nav">
+            <nav id="mainnav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li><a href="/tutorials">Tutorials</a></li>
+                    <li class="selected-item"><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
+                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
+                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            </footer>
+            </div>
+        </aside>
+
+        <section id="content" class="column-right">
+            <article>
+                <img src="images/banners/9-banner.png" class="banner"/>
+                <h1>Project Roguelike: Randomized Loot Drops</h1>
+                <div class="article-info">Posted on <time datetime="2018-09-29">September 29, 2018</time> by <b>Henry Pan</b></div>
+                
+                <h2>Recent Events</h2>
+                <p>I had intended to put up another blog post earlier in August, but I got sidetracked with other things like job hunting and <b>Fallout: New Vegas</b>. Ironically, it was about procrastination and pre-production... It'll likely be the very next blog post (#10). Anyway, I was commissioned to make a new game using RPG Maker MV, and it is just about to go into production. It has a fairly standard high fantasy setting with elves, orcs, dwarves, light versus dark, etcetera - a setting which I have always wanted to eventually try. My previous games <b>Gate of Providence</b> and <b>Pestilence Stirs</b> were more low fantasy. Since it's a commissioned game, it gets to "cut in line" when it comes to my projects. More information on this project in a future post!</p>
+                <p>In the meantime, here is an update to the roguelike game I've been working on/off. I got inspired to continue since I saw that people have been asking about how to make roguelikes in RPG Maker on various forums, and <a href="https://www.youtube.com/watch?v=mqCxc25imAo">showing my video as an example</a> that it can be done. Apparently, it's one of the top results if you search "<i>rpg maker roguelike</i>". I've decided to tackle the random item drop element for now.</p>
+                
+                <h2>Random Loot - Planning</h2>
+                <p>The Random Loot system needs to have:</p>
+                <ul><li>Weighted Rarity: Some items should appear more frequently than others.</li>
+                <li>Individual Graphics: Players should be able to tell what the item is before picking it up.</li>
+                <li>Random Locations: Items should spawn and automatically be placed randomly in the level.</li></ul>
+                
+                <p><a href="https://www.rpgmakercentral.com/topic/2152-saba-kans-random-dungeon-generator-014/">Saba Kan's Random Dungeons</a>, the heart of the project, has options to generate random, duplicated events like chests. However, it is not suitable for this project as I need it to have Individual Graphics.</p>
+                <p>I use a script by Tsukihime called <a href="https://www.rpgmakercentral.com/topic/4179-map-drops/">Map Drops</a> to handle discarding items. It is also possible to make an item spawn anywhere on the map. However, items dumped on the ground using this script do not show up on the minimap. I decided that another method would be needed for the random items found in the dungeon, and chose to use events, which <i>did</i> show up on the minimap. (A mistake.)</p>
+                <p>But first, to have loot drop, there needs to be a list of loot - a loot table.</p>
+                
+                <h2>Loot Tables</h2>
+                <p>This probably took the longest time because I needed to finalize the items that would be in the game. After I did that, I put them in a spreadsheet and set up the item weights.</p>
+                <p><img src="images/9/spreadsheet.png" style="max-width: 371px; width:100%" alt="Loot Spreadsheet"/></p>
+                <p>Here you can see six columns:</p>
+                <ul><li>Weight Sums: Used to determine the sum of the weights in order for my loot algorithm to work.</li>
+                <li>Array Index: The index of the item array. Only there for convenience.</li>
+                <li>Item ID: The item ID in the database in RPG Maker.</li>
+                <li>Item Name: The item itself.</li>
+                <li>Weights: Likeliness of getting that item relative to the other items in the loot table. "Healing Potion" has a weight of 15 and thus is more than twice as likely to show up than "Regeneration Potion".</li>
+                <li>Percent Chance: Chance of getting that item. Only there for convenience.</li></ul>
+                
+                <h2>Loot Algorithm</h2>
+                <p><img src="images/9/weightarray.png" style="max-width: 260px; width:100%" alt="Weight Array"/></p>
+                <p>The algorithm will accept an array of <i>Weights Sums</i> and an array of <i>Item IDs</i>, both the same size, and in sorted order according to the Array Index in the loot table. A random number between 1 to <i>n</i>, inclusive, where <i class="nobreak">n = Sum of All Weights</i>, is generated. Then, find the last weight in the <i>Weight Sum Array</i> that greater than or equal to the generated number. Since the arrays can get pretty large, I use <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary Search</a> to quickly find the right item. Use the index of this weight to check the <i>Item IDs Array</i> for the item to spawn. (For example, a roll of 14 or 15 gives a "Healing Potion", but a 16 would give a "Regeneration Potion".)</p>
+                <p>If any of the values in the arrays need to be changed, a Find+Replace combined with a regular expression can be used to turn the rows of numbers from the spreadsheet into something that can be put into the script box.</p>
+                <p>Another random number generator can be used to determine which loot table to pick from.</p>
+                
+                <h2>First Attempt - Fully Evented</h2>
+                <p>Now that I can select an item in the database by using the algorithm, it's time to make the item show up as an item that can be picked up.</p>
+                <p>My first attempt was to use events to take advantage of event pages. This lets me have Individual Graphics (by selecting a graphic for the event page) and Random Locations (the dungeon script randomizes event locations automatically). The correct event page would be chosen by having a variable that is changed according to the item. Plus, it works with the minimap, displaying item locations correctly! Then, after the event is done, it can just be copy and pasted multiple times. This fulfills all the conditions needed! Great! Right?</p>
+                <p>After making one of the event, I realized how bad it was. If I were to copy and paste this event, I would have to go through ALL the pages to change the variable for the page condition, and any other change will also require manual labor. This would be a huge effort, since there could be almost a hundred items in a drop table. (And events can only support 99 pages anyway.) This sort of looping behavior is best left for the machine to do.</p>
+
+                <h2>Second Attempt - Using Map Drops</h2>
+                <p>Finally, a more sensible approach. While the eventing system of RPG Maker is very powerful, using Ruby scripts is simply more effective when it comes to something like this. While I should have thought of this earlier (or left out the eventing bit entirely), I wrote about it in case any readers who are doing something similar considers an evented solution.</p>
+                <p>This approach uses the already existing system, Map Drops, to put items onto the map. Map Drops already has Individual Graphics based on the database (which is also dynamic, a big plus) and the algorithm covers Weighted Rarity. We just need to get the items to get Random Locations and have them show on the minimap.</p>
+                <p>Some digging later, I find the function that puts an event to a random place, and have the Map Drops script call it. Now items are in a random location, and everything is good. Problem solved, except...</p>
+                
+                <h2>The Pesky Minimap</h2>
+                <p>Using Map Drops means that I can fill the map with loot if I wanted to. However, the minimap problem, where items spawned by Map Drops do not appear on the minimap, still exists.</p>
+                <p>After making sense of the minimap code and experimenting with the debug options, I found out that minimap script considers Map Drop items to be "erased". This is because Map Drop items don't have a character graphic, since it takes graphics from the Iconset. The minimap script checks for "erasure" by seeing if the character graphic is null (like if you select (None) as the graphic), or if it was erased by the event command "Erase Event". I added a line to exclude Map Drop items from erasure by checking for event name.</p>
+                <p>Map Drop items started to show up on the minimap! But now, if the item is picked up, it doesn't disappear from the minimap - except if you open the menu and close it, <i>then</i> it disappears! After some more investigating, I managed to get the sprite disposed by copying one of the <i>clear</i> functions into <i>clear_sprites</i>, which is like <i>clear</i> but doesn't delete the minimap. This function will be called in <i>update</i> so it is constantly run. Then I have the item set a boolean upon pickup, which makes <i>clear_sprites</i> only run when the boolean is true, thus removing the impact on framerate.</p>
+                
+                <h2>Results</h2>
+                <p>Here are the results: one demonstrating item spawning and randomization, and one demonstrating it working inside a dungeon.</p>
+
+                <h3>Item Spawning and Looting Them</h3><p></p>
+                <p><img src="images/9/loot.png" style="max-width: 640px; width:100%" alt="Loot Spawning"/></p>
+                <p>Look at all that loot! You can also see that I've picked some of it up already. Sometimes items get stacked under each other, but I'm not sure if that will be a problem yet. The game starts to drop some frames when there are so many events on the screen, but this situation isn't one that would realistically happen in-game.</p>
+                
+                <h3>Dungeon Items</h3>
+                <p><img src="images/9/dg1.png" style="max-width: 640px; width:100%" alt="Before Looting"/> <img src="images/9/dg2.png" style="max-width: 640px; width:100%" alt="After Looting"/></p>
+                <p>Some items have spawned in this room. I grab the "Banana" and "Scroll of Teleportation". Notice that the green dots that were once on the minimap have disappeared. The "Lockpick", which I left untouched, is still there.</p>
+                
+                <h2>Video</h2>
+                <p>Here is the item spawning in video form. You can see me spawn a ton of items and then run around picking them up. There's also a brief sneak peek of the updated character creation screen in the beginning of the video.</p>
+                <div class="youtube-container" style="float:none">
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/UCw69YDVMFA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                </div>
+                <br><br><hr><br>
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </article>
+        </section>
+
+	</section>
+	
+</body>
+</html>
