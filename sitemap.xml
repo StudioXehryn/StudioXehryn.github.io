@@ -78,7 +78,19 @@
   <priority>0.30</priority>
 </url>
 <url>
+  <loc>https://www.xehryn.com/blog/9</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/blog/10</loc>
+  <priority>0.30</priority>
+</url>
+<url>
   <loc>https://www.xehryn.com/blog/patchnotes-gop</loc>
+  <priority>0.40</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/blog/postmortem-gop</loc>
   <priority>0.40</priority>
 </url>
 <url>
