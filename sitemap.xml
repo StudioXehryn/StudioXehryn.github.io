@@ -98,13 +98,6 @@
   <priority>0.40</priority>
 </url>
 <url>
-  <loc>https://www.xehryn.com/ps/download</loc>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://www.xehryn.com/ps/faqs</loc>
-  <priority>0.60</priority>
-</url><url>
   <loc>https://www.xehryn.com/gop/download</loc>
   <priority>0.90</priority>
 </url>
@@ -143,5 +136,17 @@
 <url>
   <loc>https://www.xehryn.com/dd/downloads</loc>
   <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/dd/media</loc>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/ps/download</loc>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.xehryn.com/ps/faqs</loc>
+  <priority>0.60</priority>
 </url>
 </urlset>
