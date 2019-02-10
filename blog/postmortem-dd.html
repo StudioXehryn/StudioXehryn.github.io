@@ -1,68 +1,60 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
-  gtag('config', 'UA-108805625-1');
-</script>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="styles.css" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--
-anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
-
-Download: http://zypopwebtemplates.com/
-
-License: Creative Commons Attribution
-//-->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/dreamshot-dissonance-postmortem.jpg" />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@StudioXehryn">
-<meta name="twitter:creator" content="@StudioXehryn">
-<meta name="twitter:title" content="Chaos Dreamer: A Postmortem on Dreamshot Dissonance - Blog | Studio Xehryn">
-<title>Chaos Dreamer: A Postmortem on Dreamshot Dissonance - Blog | Studio Xehryn</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/dreamshot-dissonance-postmortem.jpg" />
+    <meta name="twitter:title" content="Chaos Dreamer: A Postmortem on Dreamshot Dissonance - Blog | Studio Xehryn">
+    <title>Chaos Dreamer: A Postmortem on Dreamshot Dissonance - Blog | Studio Xehryn</title>
 </head>
 
 <body>
 
-    <section id="body" class="width">
-        <aside id="sidebar" class="column-left">
-			<header>
-				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
-                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
-                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
-            </header>
-            <div class="mobile-menu-nav" id="mobile-menu-nav">
-            <nav id="mainnav">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/games">Games</a></li>
-                    <li><a href="/tutorials">Tutorials</a></li>
-                    <li class="selected-item"><a href="/blog">Blog</a></li>
-                </ul>
-            </nav>
-            <footer>
-                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
-                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
-                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-            </footer>
-            </div>
-        </aside>
+    <div id="wrapper">
 
-        <section id="content" class="column-right">
-            <article>
-                <img src="images/banners/dreamshot-dissonance-postmortem.jpg" alt="Dreamshot Dissonance" class="banner"/>
-                <h1>Chaos Dreamer: A Postmortem on Dreamshot Dissonance</h1>
-                <div class="article-info">Posted on <time datetime="2017-12-13">December 13, 2017</time> by <b>Henry Pan</b></div>
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/dreamshot-dissonance-postmortem.jpg" style="max-width:100%"/></div>
+                    <h1>Chaos Dreamer: A Postmortem on Dreamshot Dissonance</h1>
+                    <span class="date"><time datetime="2017-12-13">December 13, 2017</time></span>
+                </header>
+                
                 <p>In this postmortem, I'll be writing about the things that went right and wrong during the development of <b>Dreamshot Dissonance.</b></p>
                 <h2>What Went Wrong</h2>
                 <h3>Lack of Development Time</h3>
@@ -73,7 +65,6 @@ License: Creative Commons Attribution
                 <p>Near the middle and end of the development, we encountered some issues with balance. We wanted the game to be hard, but accessible, so the game would function as a gateway to the bullet-hell genre. This was when "hard" games like Dark Souls or Hotline Miami were becoming more popular and mainstream. However, our playtesters either found that the game was too easy or too hard. An obvious solution would be difficulty settings, but as we were inspired by the genre of hard games, we felt it would compromise the vision of the game. We ended up deciding to make the game slightly easier, but without adding difficulty settings. The lead programmer didn't want to code that part anyway, and honestly neither did I. Not to mention the time crunch.</p>
                 <h3>Level Design</h3>
                 <p>During the last days of development, we had finished creating all of the boss fights along with all of the assets required. However, the product we presented to the class final was actually a series of boss battles. Yeah, we literally had no in-between levels! It was only after our final presentation that we went back to finish the game for good. The levels had been designed on paper beforehand, but without proper in-game testing like the boss battles had, it was bound to be the weakest parts of the game. Looking back, it may have been better to just cut the levels completely and just have seven boss battles, instead of the four level/four bosses implementation.</p>
-
 
                 <h2>What Went Right</h2>
                 <h3>Gameplay Concept</h3>
@@ -86,12 +77,29 @@ License: Creative Commons Attribution
                 <h2>Conclusion</h2>
                 <p>In eight weeks, we took a concept and turned it into a reality. While it was not perfectly executed, it was a great learning experience, and in my opinion, not bad for a first game release. Unfortunately, I've fallen out of love for the bullet-hell genre, so I won't be revisiting or updating this game with any major updates.</p>
                 
-                <br><br><hr><br>
-                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
-            </article>
-        </section>
+            </section>
 
-	</section>
-	
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

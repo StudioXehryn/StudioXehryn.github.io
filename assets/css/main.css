@@ -97,6 +97,9 @@ input, select, textarea {
     filter: drop-shadow(1px 1px 1px #222);
 }
 
+.nobreak {
+    white-space: nowrap;
+}
 
 /* Basic */
 

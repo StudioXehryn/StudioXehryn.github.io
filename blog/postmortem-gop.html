@@ -1,68 +1,60 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
-  gtag('config', 'UA-108805625-1');
-</script>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="styles.css" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--
-anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
-
-Download: http://zypopwebtemplates.com/
-
-License: Creative Commons Attribution
-//-->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<meta property="og:image" content="https://www.xehryn.com/blog/images/banners/gate-of-providence-postmortem.png" />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@StudioXehryn">
-<meta name="twitter:creator" content="@StudioXehryn">
-<meta name="twitter:title" content="The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn">
-<title>The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/gate-of-providence-postmortem.png" />
+    <meta name="twitter:title" content="The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn">
+    <title>The Gate Closes: A Postmortem on Gate of Providence - Blog | Studio Xehryn</title>
 </head>
 
 <body>
 
-    <section id="body" class="width">
-        <aside id="sidebar" class="column-left">
-			<header>
-				<a href="/" class="image"><img src="images/studio-xehryn-logo-top.png" alt="Studio Xehryn Logo"/></a>
-                <a onclick="nav()" class="mobile-menu"><img src="images/menu.svg" alt="Menu"/></a>
-                <script>function nav(){var e = document.getElementById("mobile-menu-nav"); e.style.display !== "block" ? e.style.display = "block" : e.style.display = "none";}</script>
-            </header>
-            <div class="mobile-menu-nav" id="mobile-menu-nav">
-            <nav id="mainnav">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/games">Games</a></li>
-                    <li><a href="/tutorials">Tutorials</a></li>
-                    <li class="selected-item"><a href="/blog">Blog</a></li>
-                </ul>
-            </nav>
-            <footer>
-                <p>&copy; 2018 Studio Xehryn | Design by <a href="http://zypopwebtemplates.com/">ZyPOP</a></p>
-                <div style="text-align:center; padding: 5px;"><a href="https://twitter.com/StudioXehryn"><img src="images/t.svg" style="height: 32px;"><img></a>&nbsp;&nbsp;<a href="https://www.reddit.com/r/StudioXehryn/"><img src="images/r.svg" style="height: 32px;"><img></a></div>
-                <div class="timeline" style="text-align:center; padding: 8px;"><a class="twitter-timeline" data-theme="dark" href="https://twitter.com/StudioXehryn?ref_src=twsrc%5Etfw" data-height="350">Tweets by StudioXehryn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-            </footer>
-            </div>
-        </aside>
+    <div id="wrapper">
 
-        <section id="content" class="column-right">
-            <article>
-                <img src="images/banners/gate-of-providence-postmortem.png" alt="Gate of Providence" class="banner"/>
-                <h1>The Gate Closes: A Postmortem on Gate of Providence</h1>
-                <div class="article-info">Posted on <time datetime="2018-07-31">July 31, 2018</time> by <b>Henry Pan</b></div>
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/gate-of-providence-postmortem.png" style="max-width:100%"/></div>
+                    <h1>The Gate Closes: A Postmortem on Gate of Providence</h1>
+                    <span class="date"><time datetime="2018-07-31">July 31, 2018</time></span>
+                </header>
+                
                 <p>It's been eight months after the release of <b>Gate of Providence</b>. During this time, the game has received over 12000 views and 680 downloads. As usual for a postmortem, I'll be writing about what went right and wrong during the development of <b>Gate of Providence</b>, as well as some other thoughts.</p>
                 <h2>What Went Wrong</h2>                
                 <h3>Combat Balancing and Difficulty Levels</h3>
@@ -76,8 +68,7 @@ License: Creative Commons Attribution
                 <h3>Online Presence and Target Audience</h3>
                 <p><b>Gate of Providence</b> had essentially no marketing or online presence. People would only see the occasional screenshot in the weekly screenshot thread on r/rpgmaker. The trailer was made after the game was already completed, resulting in little to no hype. The website, twitter account, and devblog did not exist either. This was mostly because all my time was devoted towards developing the game itself. I still need to work on this, as evident by my very infrequent devblog posts.</p>
                 <p>The game was also exclusively marketed towards the RPG Maker community, mainly because of the RTP sentiment. For the most part, I feel the game has done okay with views/downloads, but the amount of feedback I got was disappointing. The forum thread I posted on rpgmakerweb has been viewed 1200+ times, but it does not have a single reply. Analytics from itch.io show that the game is being downloaded via rpgmakerweb referral, but I don't know how far people are getting into the game. The entry on rpgmaker.net was much better, though many comments were about not being able to run the game due to missing DirectX or some other dependency, which honestly was quite a shock. Even my grandpa's computer has those required files already installed!</p>
-                
-                
+
                 <h2>What Went Right</h2>
                 <h3>Completion</h3>
                 <p>The completion of <b>Gate of Providence</b> marks an important milestone for me personally. It is my first large/epic project that has attained completion. <b>Dreamshot Dissonance</b> was my actual first complete game, but that was required for a class. <b>Gate of Providence</b> was created on my own volition, with no pressure like grades or monetary gain driving me to finish the game.</p>
@@ -89,7 +80,6 @@ License: Creative Commons Attribution
                 <h3>Combat / Anima System</h3>
                 <p>The combat system has also received some praise from players. For those who have not played the game yet, combat in <b>Gate of Providence</b> focuses on using skills that spend a resource called Anima. Every skill has a period of turns that the skill cannot be used again after being used, called Cooldown. Players can pick and choose skills they want to bring into battle. This lets players come up with their own strategies to suit their preferences. This diverges from the standard JRPG-style combat, where players focus on the "Attack" command and use skills only when needed (pretty much against bosses) to conserve MP. Since Anima resets every battle, there is no point in conserving for the long-term, so players can go all out with skills.</p>
                 <p>What I should have done was remove the "Attack" command completely. It was included to ease players coming from a JRPG background into the Anima combat system, but it led to some players using "Attack" continuously without realizing that it was not meant to be used frequently. For the sequel, I will follow through with removing the basic attack.</p>
-                
                 
                 <h2>Other Thoughts</h2>
                 <h3>Experimental Development, Large Projects, and Scope</h3>
@@ -116,12 +106,29 @@ License: Creative Commons Attribution
                 <h2>Conclusion</h2>
                 <p>The development of <b>Gate of Providence</b> has truly been a journey. This massive undertaking has provided everyone involved with lots of experience, and I hope that our future games will be as good, if not better than <b>Gate of Providence</b>. Stay tuned and thanks for reading!</p>
                 
-                <br><br><hr><br>
-                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
-            </article>
-        </section>
+            </section>
 
-	</section>
-	
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
 </body>
 </html>
