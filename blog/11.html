@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/11-banner.png" />
+    <meta name="twitter:title" content="New Year, New Look - Blog | Studio Xehryn">
+    <title>New Year, New Look - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/11-banner.png" style="max-width:100%"/></div>
+                    <h1>New Year, New Look</h1>
+                    <span class="date"><time datetime="2019-02-10">February 10, 2019</time></span>
+                </header>
+
+                <h2>The Redesign</h2>
+                <p>The website has finally been redesigned! I was not too happy with what I had before. Previously, I had a sidebar nav, while the contents of the page extended all the way to the right. This made reading long lines of text awkward, and also caused annoyances with layout when switching between screen sizes. I wanted to change it so the website would look relatively the same regardless of screen size or viewing device.</p>
+                <p>I opted for a modern theme. Text is centered and fixed-width. This redesign looks best on article-type pages like my tutorials or blog posts.</p>
+                <p>On the main site I added a "Resources" section. I plan on releasing some freebies like sprites and plugins in the future.</p>
+                
+                <h2>The CSS</h2>
+                <p>I'm not a CSS wizard, so I used a theme by <a href="https://html5up.net">HTML5 UP</a> as a base. I made adjustments to the styling so the content width is much smaller. I also utilized some CSS variables to change the color scheme depending on the game - check out the pages for <a href="https://www.xehryn.com/gop/">Gate of Providence</a> for example. I no longer need to have a separate css file for every theme.</p>
+                <p>As a consequence of the redesign, the average page weight has gone up. This is because of the heavy CSS, due to it being generated from SASS (I assume). My old stylesheet was about 5kb, the new stylesheet is about 70kb. I don't think this is too big of a problem as it's only the size of a small image, and compared to other websites, it is still quite small.</p>
+                
+                <h2>And the Games?</h2>
+                <p>I'll put up a status update in a week or so. I'll go over the status of each project I'm working on then.</p>
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
