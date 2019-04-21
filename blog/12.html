@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/12-banner.png" />
+    <meta name="twitter:title" content="The Gate... Reopens? - Blog | Studio Xehryn">
+    <title>The Gate... Reopens? - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/12-banner.png" style="max-width:100%"/></div>
+                    <h1>The Gate... Reopens?</h1>
+                    <span class="date"><time datetime="2019-04-20">April 20, 2019</time></span>
+                </header>
+
+                <h2>Status Update</h2>
+                <p>Life has been busy, so I didn't have time to post any updates since the previous blog post. As for my games, here are updates for each project I'm working on:</p>
+                
+                <h4>Project Seventh Seal</h4>
+                <p>The fate of this project is unknown. The person who commissioned this project hasn't been responding to my messages, so in the meantime this game is shelved.</p>
+                <p>It's too bad, since I spent quite a lot of time working on this. I can probably reuse some of the code and assets in future projects though.</p>
+
+                <h4>Rondo of Wizardry and Love</h4>
+                <p>Planning on an engine move away from RPG Maker VX Ace. I've decided it isn't worth tangling with buggy scripts with no documentation, support, and updates. The main script in question is responsible for the tactical battle system, which is an essential part of the game (around 75-85% probably). The author of this script hasn't shown himself in almost two years, his website (that supposedly contains documentation for his script) is likely down for good, and I suspect no one else is really making anything with his script.</p>
+                <p>Moving to MV will require a fair bit of changes. I will gain access to another tactical battle system: Lecode. It's currently in beta, but is actually active... relatively. The last commit on their GitHub was last year, but people are asking questions and getting responses (from other users), placing the plugin on the first page of the <a href="https://forums.rpgmakerweb.com/index.php?forums/js-plugin-releases-rmmv.135/">JS Plugin Releases board</a> on rpgmakerweb. Looking deeper in the thread reveals that the author is working on a big rewrite that will be released in a couple of months. I'll have to wait and see what's in store!</p>
+                <p>The design differences means I'll have to redesign many parts of my existing system to include new elements of complexity, which isn't a bad thing. Other lesser scripts I can probably port myself, or find an existing plugin written by someone else.</p>
+                
+                <h4>Project Roguelike</h4>
+                <p>Slowly working on it, but little progress so far. Next on the list of features to implement for this game is ranged attacks.</p>
+                
+                <h2>New Stuff?!</h2>
+                <p>As hinted in the title of this post and the banner image, there may be stuff in store in the future for <a href="https://www.xehryn.com/gop/">Gate of Providence</a>! What is it, a sequel? Spin-off? No, a <b>remaster</b>!</p>
+                <p>A remaster of <a href="https://www.xehryn.com/gop/">Gate of Providence</a> <b>may</b> be coming in the future, as a port to the RPG Maker MV engine. But it won't just be a port, it will have:</p>
+                <ul>
+                <li>Increased resolution, mouse/touch controls, multi-platform.</li>
+                <li>New quests, removal of some of the existing lower quality quests, and rewriting some other quests with potential.</li>
+                <li>Aesthetic/mood changes, remapping of villages, and a general expansion of the world. This includes a revamping of the tileset, the most RTP bit of the game.</li>
+                <li>Saving from anywhere, and more... Basically fixing all my gripes I've talked about in the <a href="https://www.xehryn.com/blog/postmortem-gop">postmortem</a>.</li>
+                </ul>
+                <p>Again, it's a big <b>maybe</b>, but it's something I'm interested in doing.</p>
+                
+                <h2>Why a Remaster</h2>
+                <p>I could have made a sequel or a spin-off for this game universe (both were considered and even fully conceptualized) but I chose a remaster - why?</p>
+                <p><a href="https://www.xehryn.com/gop/">Gate of Providence</a> is my greatest work, and will likely still be for a while. With a remaster, I have the opportunity to fix and correct things that would be a pain to do in the current version (or downright impossible), like increased resolution and multi-platform, quest revamps, and village remapping. (And that pesky invisible wall bug that I can't reproduce.) I also don't need to worry about new game design or art assets.</p>
+                <p>The port lets me gain some more experience with JavaScript, which has a bit more real-world applications and is a very popular programming language.</p>
+                <p>Additionally, a remaster brings new visibility to the game, especially after I do the remapping and aesthetic changes.</p>
+                
+                <h2>The Future</h2>
+                <p>However, this is all pretty far into the future. I've already got loads of projects taking up my time and mind. Some of them will get the axe, some new projects may pop up.</p>
+                <p>What's certain is that I'm planning on moving on from VX Ace to MV after making two more games (Roguelike and one unannounced). MV just has too many benefits over VX Ace now to justify sticking with the oldie. My last two VX Ace games rely on stuff with no MV equivalent, so they will remain VX Ace only.</p>
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
