@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/12-banner.png" />
+    <meta name="twitter:title" content="New Game Battle System Sneak Peek - Blog | Studio Xehryn">
+    <title>New Game Battle System Sneak Peek - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/13-banner.png" style="max-width:100%"/></div>
+                    <h1>New Game Battle System Sneak Peek</h1>
+                    <span class="date"><time datetime="2019-05-18">May 18, 2019</time></span>
+                </header>
+                
+                <h2>What I've Been Working On</h2>
+                <p>I've been working on a VX Ace game. I'm aiming for a relatively short/medium length, around 4-5 hours possibly. This currently untitled game takes place in the modern world, following a trio of espers who work for a private military company. It is set in the year 2047, so it also has some futuristic elements.</p>
+                <p>These espers perform their duties using Psionics, a result of their enhanced/augmented brains. They can load "processes" in their brains, which manifests in their environment as energy or material objects.</p>
+                <p>In this blog post, I'll just be showing bits of the battle system. Much of it is still a work-in-progress of course.</p>
+
+                <h2>Battle System</h2>
+                <p>The game uses a trading card game-style battle system. Each character has a deck of cards, which they draw from to fill their hand. Cards can be played by paying PP (and/or any other cost). Player characters take turns playing as many cards as they want/can, and draw them every turn from the deck. The cards are basically skills in a regular game. </p>
+                <p>I've taken the <a href="https://www.rpgmakercentral.com/topic/26983-cardgame-inspired-skill-and-battle-system/">original script by Pencilcase27</a> and combined it with Yanfly's Battle Engine (engine improvements) and Yami's Battle Engine Symphony (sideview) to produce the result below.</p>
+                <p></p>
+                
+                <h2>The Battle Scene</h2>
+                <div class="box" style="text-align: center"><img src="images/13/battle.png" style="max-width: 640px; width:100%" alt="Battle Scene"/><br><i>RTP Graphics are placeholders.</i></div>
+                <p>This is the battle scene of the game. The visuals are inspired by <b>Mother 3</b>, the actor command window and background in particular. At the moment, I'm using the built-in swirly pattern that shows up when you don't set a battleback as the background. I'm hoping to get the background animated with some pattern, but we will see.</p>
+                <p>The icons on the status window are Number of Cards in Hand (gloves), Number of Cards in Deck (book), Attack Value (sword), and Defense Value (shield). On top, the actor command window, are <b>Hand</b> (gloves), <b>Analyze</b> (magnifying glass), <b>Discarded</b> (ruined slab), <b>Combat Log</b> (page), and <b>End Turn</b> (guy).</p>
+                <p>I also made a small script that auto-places enemies on the field since fiddling with the tiny Troop box in the database is a pain. As a result, the enemies are lined up nice and orderly like the player characters, very useful for Battle Engine Symphony. I may release this script to the public in the future.</p>
+
+                <h2>Hand</h2>
+                <div class="box" style="text-align: center"><img src="images/13/hand.png" style="max-width: 640px; width:100%" alt="Hand"/><br><i>Seven cards in hand, one of them is a legendary spear that is apparently uncommon.</i></div>
+                <p>On the very right are the cards in hand. I've opted to display only the icon, since they will all be unique for each card, and for minimalism. Next to the hand is the selected card. The card window displays the card icon, name, rarity (in this case, Uncommon), type (Melee card), PP cost, and description. I'm still working on the description section, mainly trying to get the line-break function to work properly.</p>
+                <p>The card backs will have the colors matching their card type. For example, <b>Rhongomyniad</b> should have a red background in the card window. I haven't implemented this yet.</p>
+                
+                <h2>Enemy Analysis</h2>
+                <div class="box" style="text-align: center"><img src="images/13/analyze.png" style="max-width: 640px; width:100%" alt="Analyze Enemy"/><br><i>Soldier A, exposed.</i></div>
+                <p>Selecting <b>Analyze</b> lets you check the stats of the selected enemy. It'll show their current status effects and the durations, HP, Attack, and Defense. Enemies don't use Cards, so they do not show anything for Hand/Deck like the player characters do.</p>
+                <p>The base script, <a href="https://yanflychannel.wordpress.com/rmvxa/battle-scripts/ace-battle-engine/enemy-target-info/">Yanfly's Enemy Target Info</a>, opens when you selected a target with a skill and press a button (SHIFT). I wanted this feature as a command, so I did some modifications to the script. My edits calls the method to display the stats window in the actor command window by using the enemy selection window. Then I aliased the <code>on_enemy_ok</code> and <code>on_enemy_cancel</code> methods to hide the window if it is visible to prevent any issues that occur when pressing any buttons.</p>
+                
+                <h2>Combat Log</h2>
+                <div class="box" style="text-align: center"><img src="images/13/log.png" style="max-width: 640px; width:100%" alt="Combat Log"/><br><i>The soldiers attacked, and the players draw for their turn.</i></div>
+                <p>Useful for checking on things that have already happened, thanks to <a href="https://yanflychannel.wordpress.com/rmvxa/battle-scripts/combat-log-display/">Yanfly's Combat Log Display</a> script. Since there is no party command in this game, I had to edit the script to move the log to the actor command. I also made a minor edit to the card battle system to be able to print messages (like drawing cards) to the combat log.</p>
+                
+                <h2>In Other News</h2>
+                <p>I've released the <a href="https://www.xehryn.com/resources/">Resources</a> page a couple of weeks ago. It currently has one plugin, 4 sprites, and one piece of music. I may release more free content in the future, so if you like what you see, keep an eye out!</p>
+                <p>After this game and <b>Project Roguelike</b>, I will be "retiring" from VX Ace and moving on to MV. Then, I'll remaster <a href="https://www.xehryn.com/gop/"><b>Gate of Providence</b></a> as stated in <a href="https://www.xehryn.com/blog/12">devblog 12</a>! But honestly I'll probably start the remaster before I finish <b>Roguelike</b>, I'm still very excited about new ideas for <b>Gate of Providence</b>!</p>
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
