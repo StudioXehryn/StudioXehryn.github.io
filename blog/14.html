@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/14-banner.png" />
+    <meta name="twitter:title" content="The Combat System of Gate of Providence Remake - Blog | Studio Xehryn">
+    <title>The Combat System of Gate of Providence Remake - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/14-banner.png" style="max-width:100%"/></div>
+                    <h1>The Combat System of Gate of Providence Remake</h1>
+                    <span class="date"><time datetime="2020-05-27">May 27, 2020</time></span>
+                </header>
+                
+                <h2>Recent Events / Status Update</h2>
+                <p>It's been a long time since my previous blog post, just a bit over a year already. In that time, various projects were picked up but were later shelved. Some were small projects that I picked up to try out some novel mechanics and push the engine, while some were meant to become fully-fledged releases. I ended up never writing about the small projects, but I did write about the roguelike and the esper "card" game. They were essentially tech demos, now cancelled since I've decided to retire from VX Ace and move on to MV for good.</p>
+                
+                <p>Another "big" release, my tactics game <b>Rondo of Wizardry and Love</b>, which was supposed to have a demo out by the end of May 2020, was also shelved since a vital team member had left the project to pursue other goals. Fortunately what's been finished so far (mostly engine stuff) can be repurposed for another project I've planned so not much work was wasted.</p>
+                
+                <p>There's one project that won't be going anywhere though: the <a href="https://www.xehryn.com/gop/"><b>Gate of Providence</b></a> remake. It was meant to be a remaster / port of the original game, but I felt that it was a good time to fix some issues while I was at it. In many ways, it'll be a remaster, remake, and expansion.</p>
+                
+                <div class="box" style="text-align: center"><img src="images/14/ac.jpg" style="max-width: 1280px; width:100%" alt="Animal Crossing"/><br><i>Recently, I've been spending some time on an island getaway...</i></div>
+                
+                <p>I figured that it would be good to write about some of the design decisions I'll be making for the <a href="https://www.xehryn.com/gop/"><b>Gate of Providence</b></a> remake. In this blog post, I'll be writing about the potential changes to the battle system and other related mechanics.</p>
+
+                <h2>The Anima System</h2>
+                <p>The main defining feature of the battle system is Anima (ANI), the resource used by all skills. The changes I'm planning streamlines the Anima system and hopefully gives better distinction from a standard JRPG combat system.</p>
+                
+                <h3>Starting Anima</h3>
+                <p><b>All fighters will start the battle with 40 ANI, instead of 0 ANI.</b></p>
+                <p>In theory, players are able to use the first turn to safely use items or guard while the enemies are busy charging up. However, pretty much everyone just mashed the <i>OK</i> key to use the ANI Generation skill, making the battle functionally begin on turn 2. Changing the starting ANI to 40 lets fighters use their skills right from the start without wasting time on the "setup turn".</p>
+                
+                <h3>Removal of Basic Attack</h3>
+                <p><b>The Attack option will be removed completely.</b></p>
+                <p>The Attack option was an attack with 30 base power that generated 5 ANI. To compare damage, Jun's <i>Dragon Stance</i> is a typical "vanilla" skill that had 95 base power and costed 10 ANI. I had included this attack as an option for those who had poorly managed their ANI and couldn't use any other skills. However, I had received feedback from some players who did not realize the focus of the system was the Anima skills, a departure from the usual JRPG-style combat, and complained about how weak the standard Attack was. Removing this option enforces the Anima system of generating and using ANI.</p>
+                
+                <h3>Anima Generation as Separate Command</h3>
+                <p><b>The Anima Generation skill will be moved out of the skills menu, replacing the Attack option.</b></p>
+                <p>Anima Generation will still be needed if more ANI is required. I'm moving it out of the skills section for player convenience.</p>
+                
+                <h2>Player-Chosen Loadouts</h2>
+                <p>This refers to any combination of skills and equipment that players can equip to bring into a battle. There is a skill slot system in which players choose which skills are usable in battle.</p>
+                
+                <h3>Equipment-Based Skills</h3>
+                <p><b>Adding equipment that allows usage of a certain skill only while worn.</b></p>
+                <p>This would allow for a better variety of skill loadouts, while also diversifying equipment. Players will have to consider if a skill granted by equipment is worth giving up for better stats, and vice-versa. Note this would not be the same as equipment-learning, where the player would gain access to the skill permanently after gaining EXP with the equipment. That would encourage grind and ultimately enable a player to collect all possible skills without needing to make choices on equipment.</p>
+                
+                <h3>Splitting of Multi-Effect Skills</h3>
+                <p><b>Some skills have too many effects on them and thus will be split into separate skills.</b></p>
+                <p>In the original, some skills have an extra effect attached to it. I had done this because there were some effects I felt players should have access to, either for gameplay or thematic reasons. This made some skills strong, while some became overpowered. Splitting these skills into two skills gives players a less obvious choice when it comes to building their loadout. These skills would be usable as equipment-based skills.</p>
+                
+                <h2>Equipment and Crafting</h2>
+                <p>There is a basic crafting system that allows player to upgrade their weapons. I plan on expanding on it to include armor sidegrades and accessories.</p>
+                
+                <h3>Crafting Rework</h3>
+                <p><b>A big expansion of the crafting system to allow for the creation of equipment that aren't just stat-number upgrades.</b></p>
+                <p>This rework will make smithing more useful and streamlined. This will also give monster loot a use, instead of just being something to be sold to shops. Metal tiers will change as well, with new metals being added and some being removed. Wood as a crafting material will be removed, as there was no method of gathering it except buying from shops. Most of the new equipment that come out of the rework will provide equipment-based skills.</p>
+                
+                <h3>Accessory Slot Split</h3>
+                <p><b>The two accessory equipment slots will become a ring slot and a neck slot.</b></p>
+                <p>This turns generic accessories into specific ring and neck slots. This will open new possibilities when paired with equipment-based skills. At the moment I'm considering two ring slots and one neck slot.</p>
+                
+                <h2>Encounters</h2>
+                <p>While exploring the world, players will bump into enemies roaming about.</p>
+                
+                <h3>Removal of EXP from Encounters</h3>
+                <p><b>No more EXP from battles.</b></p>
+                <p>I want to make the only method of levelling up playing the quests, as it is how the story of Gate of Providence is told. Instead, enemies drop more loot, which will be more useful alongside the crafting rework. In addition, this will stop players from grinding levels and gaining access to powerful skills earlier than anticipated.</p>
+                
+                <h3>Distinct Enemy Sprites</h3>
+                <p><b>Enemies will have distinct sprites, like Providence soldiers and Elementals which currently use a shared sprite.</b></p>
+                <p>It'll just look better.</p>
+                
+                <h2>And Possibly More</h2>
+                <p>That's everything on my mind for now. There may be more changes in the future! The next blog post will be about the quest system. Thanks for reading!</p>
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
