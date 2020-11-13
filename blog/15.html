@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/blog/images/banners/15-banner.png" />
+    <meta name="twitter:title" content="The Menus of Gate of Providence Remake - Blog | Studio Xehryn">
+    <title>The Menus of Gate of Providence Remake - Blog | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li class="active"><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/banners/15-banner.png" style="max-width:100%"/></div>
+                    <h1>The Menus of Gate of Providence Remake</h1>
+                    <span class="date"><time datetime="2020-11-12">November 12, 2020</time></span>
+                </header>
+
+                <h2>The Menu</h2>
+                <p>This blog post is about the menu screens in the <a href="https://www.xehryn.com/gop/"><b>Gate of Providence</b></a> remake. As an RPG, menus are a thing players will have to navigate frequently so it's important to design them to be functional but also interesting. For the remake, I aimed to keep it minimal while displaying all the necessary information. I decided to write my own main menu plugin to suit my needs. Many of <a href="http://www.yanfly.moe/wiki/Category:Yanfly_Engine_Plugins">Yanfly's plugins</a> are also used, though modified to fit with my own design.</p>
+
+                <div class="box" style="text-align: center">
+                <a href="images/15/old menu.png"><img src="images/15/old menu.png" style="max-width: 640px; width:42%" alt="Old Main Menu"/></a>
+                <a href="images/15/new menu.png"><img src="images/15/new menu.png" style="max-width: 960px; width:57%" alt="New Main Menu"/></a>
+                <br><i>Old and new, side-by-side comparison.</i></div>
+                
+                <p>One of the first things you'll see is that the new menu is a lot more "open", especially with the increased width of the screen. The original status window and data window (gold, location, time) took up nearly 80% of the screen, with lots of wasted space. This was condensed to only take up ~25% in the new menu. The help window was also removed, as the menu options are relatively self-explanatory and don't require description.</p>
+                
+                <p>The menu commands have also been condensed. Similar commands were grouped together into categories, which are accessed through sub-menus. Skills, Equipment, Status were moved into the Character category, as all of them require selecting a character before moving into the next menu. Quest Log and Journal go into Records, and Achievements and Configuration went into System. Technically, Save could have been in System as well, but I chose to keep it outside for easy access. I ordered the commands so that the most frequently used commands are accessible in the least amount of actions.</p>
+                
+                <h2>Inventory</h2>
+                <div class="box" style="text-align: center">
+                <a href="images/15/items.png"><img src="images/15/items.png" style="max-width: 960px; width:100%" alt="Inventory Screen, Items"/></a>
+                <br><i>The inventory screen, with Items selected.</i></div>
+                
+                <p>This menu screen is built on top of <a href="http://www.yanfly.moe/wiki/Item_Core_(YEP)">YEP Item Core</a>. The top and bottom vignettes are retained from the main menu to keep a consistent design, with the top showing commands, and the bottom showing the help window. The info window from YEP was removed because it contained no relevant information and wasted a lot of space. I put the status window in its place and expanded it.</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/15/equipinv.png"><img src="images/15/equipinv.png" style="max-width: 960px; width:100%" alt="Inventory Screen, Equipment"/></a>
+                <br><i>The inventory screen, with Equipment selected.</i></div>
+                
+                <p>The Equipment option is similar to the Items option, except the status window shows the stats of the selected equipment.</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/15/key.png"><img src="images/15/key.png" style="max-width: 960px; width:100%" alt="Inventory Screen, Key Items"/></a>
+                <br><i>The inventory screen, with Key Items selected.</i></div>
+                
+                <p>The Key Items option is more barebones than the others. It keeps the same design as Items and Equipment so the status window is there, but information like stats or status effects have been removed as they are not present in any Key Items. Usable Key Items like the <b>Fishing Rod</b> are placed on the top of the list for easy access, though they are also accessible through the Tools command in the main menu.</p>
+
+                <h2>Character</h2>
+                <div class="box" style="text-align: center">
+                <a href="images/15/character.png"><img src="images/15/character.png" style="max-width: 960px; width:100%" alt="Character Submenu"/></a>
+                <br><i>The Character Command with a sub-menu open.</i></div>
+                
+                <p>Selecting the Character command on the main menu will display a list of the characters in the party. Selecting a character will open a sub-menu that has Skills, Equipment, and Attributes. The Skills screen is very simple so I won't show it here.</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/15/equip.png"><img src="images/15/equip.png" style="max-width: 960px; width:100%" alt="Character Equipment"/></a>
+                <br><i>The Equipment screen.</i></div>
+                
+                <p>The Equipment screen is built on top of <a href="http://www.yanfly.moe/wiki/Equip_Core_(YEP)">YEP Equip Core</a>. As usual, unused windows were removed and the parameter window was expanded. I also added Evasion and Critical to the parameter window. Also note that the names of the parameters were changed - I felt that it was best to be as clear as possible when it came to naming. Names like Strength or Endurance sound nice, but it could be hard to remember what something like Endurance actually does. The names were changed back to what they really do - Attack and Defense, Ranged Attack and Ranged Defense, with no ambiguity on what interacts with what.</p>
+
+                <div class="box" style="text-align: center">
+                <a href="images/15/attributes.png"><img src="images/15/attributes.png" style="max-width: 960px; width:100%" alt="Attributes"/></a>
+                <br><i>The Attributes screen.</i></div>
+                
+                <p>This screen deviates from the original Gate of Providence a bit. This screen was built on top of using <a href="https://forums.rpgmakerweb.com/index.php?threads/stat-polygon.80240/">mjshi's Stat Polygon</a>, which draws a radar chart. A fancy visual helps players quickly distinguish strengths and weakness of each character in the party, as well as see how close they are to a character's maximum potential. More stats are listed, adding Evasion Rate, Critical Rate, Target Chance, and HP/ANI Regeneration Rate. With all the space saved from the original version, I was also able to fit in a short biography as well.</p>
+                
+                <p>This is also a second variation on the main design, which only keeps the top vignette. I use this design for screens that need to display a lot of information and don't use a help window.</p>
+                
+                <h2>Records</h2>
+                <div class="box" style="text-align: center">
+                <a href="images/15/records.png"><img src="images/15/records.png" style="max-width: 960px; width:100%" alt="Records"/></a>
+                <br><i>The Records Command.</i></div>
+                
+                <p>The Quest Log and Journal were moved to Records. I'm considering also moving the Map here as well.</p>
+
+                <div class="box" style="text-align: center">
+                <a href="images/15/quests.png"><img src="images/15/quests.png" style="max-width: 960px; width:100%" alt="Quests"/></a>
+                <br><i>The Quests screen, with placeholder quests.</i></div>
+                
+                <p>The Quests screen is built on top of <a href="http://www.yanfly.moe/wiki/Quest_Journal_System_(YEP)">YEP Quest Journal System</a>. I used the second variation with the top vignette to give more space for the quest list and quest description. In the final version, all quests will be displayed from the start. This screen can also be brought up by hitting the "A" key on the map.</p>
+                
+                <p>On another note, Yanfly is seriously amazing for the MV scene. So many of scripts used in the original GoP had to be sourced from many different people, while in the remake, Yanfly had made nearly all of them, which is very good for code quality and consistency.</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/15/journal.png"><img src="images/15/journal.png" style="max-width: 960px; width:100%" alt="Journal"/></a>
+                <br><i>The Journal screen, with placeholder entries.</i></div>
+                
+                <p>The Journal screen is built on top of <a href="https://forums.rpgmakerweb.com/index.php?threads/taa_bookmenu-v1-5-1.103047/">taaspider's Book Menu</a>, which was based on <a href="http://www.yanfly.moe/wiki/Quest_Journal_System_(YEP)">YEP Quest Journal System</a>. (And comes with the same bugs, no pun intended!) It functions pretty much exactly the same as the Quests screen, except it displays stuff like Books or other miscellaneous reading material.</p>
+
+                <h2>System</h2>
+                <div class="box" style="text-align: center">
+                <a href="images/15/system.png"><img src="images/15/system.png" style="max-width: 960px; width:100%" alt="System"/></a>
+                <br><i>The System Command, with a sub-menu open.</i></div>
+                
+                <p>The System command is where players access Settings, Achievements, and Quit Game. Previously, Quit Game was tucked into Configuration which was sort of an odd place to put it. The sub-menu is also shown in action here, which circumvents the GameEnd scene entirely.</p>
+
+                <div class="box" style="text-align: center">
+                <a href="images/15/settings.png"><img src="images/15/settings.png" style="max-width: 960px; width:100%" alt="Settings"/></a>
+                <br><i>The Settings screen.</i></div>
+                <p>The Settings screen is built on top of <a href="http://www.yanfly.moe/wiki/Options_Core_(YEP)">YEP Options Core</a>. It's a fairly standard settings screen, though I'm planning on putting plenty of toggles so players can customize their gameplay experience. Players can also change their keybinds in the remake, unlike in the original which had a strict control scheme.</p>
+
+                <div class="box" style="text-align: center">
+                <a href="images/15/ach locked.png"><img src="images/15/ach locked.png" style="max-width: 960px; width:49.5%" alt="Achievements Locked"/></a>
+                <a href="images/15/ach unlocked.png"><img src="images/15/ach unlocked.png" style="max-width: 960px; width:49.5%" alt="Achievements Unlocked"/></a>
+                <br><i>The Achievements screen, with locked and unlocked achievements.</i></div>
+                
+                <p>The Achievements screen is built on top of <a href="https://forums.rpgmakerweb.com/index.php?threads/smo-achievements-menu-v1-03.122651/">SMO's Achievements</a>. I liked their plugin the best out of all the other achievement plugins out there. It also had a lot of fluff, but it was not a problem since it was easy to delete.</p>
+                
+                <p>The number of achievements were also reduced to 30, from 40 in the original. The deleted achievements were mostly progress-related, too grindy, or just made obsolete by change in design. The current achievements are not entirely finalized yet, so the ones shown here may be changed later. The icons were also changed to indicate tiers like with Playstation trophies. The achievement ratios here are 50% (15) Bronze, 30% (9) Silver, 16.7% (5) Gold, and 3.3% (1) Platinum.</p>
+                
+                <h2>Tools</h2>
+                <p>Nothing to show here actually. The Tools command just brings up a small "Use Item" window, which lets players pick out a Key Item to use. I use this for quick access to tools like the <b>Timer</b>, which can be used to check up on the pet cat. Players using the keyboard can bring up this menu by hitting the "S" key on the map, but it was added to the main menu for mouse players.</p>
+                
+                <h2>Other Updates</h2>
+                <p>So, that's all for the menus for now. Other things I've done beside the menus so far is reorganizing the Iconset as well as culling items. There were a load of pointless consumables like <b>Antidotes</b> that were so situational that they didn't really need to exist. Many items were consolidated, like buff potions, stat growth salves, and debuff flasks. In addition, new icons were assigned to many items and status effects.</p>
+                
+                <p>My next goal is to clean up and reorganize tilesets. Currently, there are a lot of tiles that are unused, and some tilesets are taken from the original resource asset in its entirety. Most of these are outdoor tilesets, as I had already made my own arrangement of interior tilesets in the original. Once that is done, I can begin making the maps and piecing together the explorable world.</p>
+                
+                <p>That's all for now. Thanks for reading!</p>
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
