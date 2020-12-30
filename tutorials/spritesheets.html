@@ -60,14 +60,14 @@
                 
                 <h2>Introduction</h2>
                 <p>Many new makers, often artists, have difficulty making their custom artwork function properly in Ace/MV/MZ. They face issues like sprites cutting off, or the editor only displaying a tiny piece of their sprite. This tutorial aims to clear up any confusion or misconceptions surrounding sprites.</p>
-                <h5>This tutorial only focuses on the default behavior of the program(s), without the use of any external plugins or scripts. Eight directional / diagonal sprites are not covered.</h5>
+                <h5>This tutorial only focuses on the default behavior of the program(s), without the use of any external plugins or scripts. Eight directional / diagonal sprites are not covered. This tutorial uses sprites from the VX Ace RTP, but the same principles are the same in MV and MZ.</h5>
                 
                 <h2>Anatomy of a Spritesheet</h2>
                 <p><img src="images/spritesheets/anatomy.png" style="max-width: 584px; width:100%;"/></p>
-                <p>Each spritesheet can divided into three components. (Disclaimer: These are my own terminology, used for this tutorial, and may not be the same as other people's!)</p>
+                <p>Each spritesheet can be divided into three components. (Disclaimer: These are my own terminology, used for this tutorial, and may not be the same as other people's!)</p>
                 
                 <h3>Sprite</h3>
-                <p>Refers to a single character sprite. They can be any size (N pixels x M pixels), but keep in mind that the standard map tile size is 32px x 32px in VX Ace and 48px x 48px in MV/MZ. It is important to note that any transparent pixels will count towards the sprite's size.</p>
+                <p>Refers to a single sprite. They can be any size (N pixels x M pixels), but keep in mind that the standard map tile size is 32px x 32px in VX Ace and 48px x 48px in MV/MZ. It is important to note that any transparent pixels will count towards the sprite's size. The final size of the sheet is based on the size of a sprite.</p>
                 <p><img src="images/spritesheets/padding.png" style="max-width: 450px; width:100%;"/></p>
                 <p>Notice the size difference with these two sprites. If you are using sprites that protrude in a certain direction, you need to pad ALL the sprites with transparent pixels so they will line up properly.</p>
                 
@@ -84,11 +84,11 @@
                 
                 <h3>The "!" Prefix</h3>
                 <p><img src="images/spritesheets/offset.png" style="max-width: 370px; width:100%;"/></p>
-                <p>Characters graphics in-game are offset (moved) up by four pixels in Ace, or six pixels in MV. Adding the "!" prefix will cancel this effect. This also turns off the translucent effect that occurs when the event is standing on a tile marked as "Bush" in the tileset section of the database. This is good for object events such as doors, chests, or furniture.</p>
+                <p>Characters graphics in-game are offset (moved) up by four pixels in Ace, or six pixels in MV and MZ. Adding the "!" prefix will cancel this effect. This also turns off the translucent effect that occurs when the event is standing on a tile marked as "Bush" in the tileset section of the database. This is good for object events such as doors, chests, or furniture.</p>
                 
                 <h3>The "$" Prefix</h3>
                 <p><img src="images/spritesheets/singular.png" style="max-width: 216px; width:100%;"/></p>
-                <p>It is possible to have a file with just one character by attaching "$" to the beginning of the filename. Do not add the "$" if there are multiple characters in the file!</p>
+                <p>It is possible to have a file with just one character by attaching "$" to the beginning of the filename. Do not add the "$" if there are multiple characters in the file! This is the biggest culprit of cutoff sprites that many new users find.</p>
                 
                 <h2>Multi-frame Animations</h2>
                 <p><img src="images/spritesheets/multi1.png" style="max-width: 400px; width:100%;"/></p>
