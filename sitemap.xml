@@ -50,6 +50,10 @@
   <priority>0.50</priority>
 </url>
 <url>
+  <loc>https://www.xehryn.com/tutorials/fishing-regions</loc>
+  <priority>0.50</priority>
+</url>
+<url>
   <loc>https://www.xehryn.com/blog/1</loc>
   <priority>0.30</priority>
 </url>

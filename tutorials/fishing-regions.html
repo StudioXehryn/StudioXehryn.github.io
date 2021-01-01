@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108805625-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108805625-1');
+    </script>
+    
+    <style>:root {--primary: #00d1bf; --secondary: #009185;}</style>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StudioXehryn">
+    <meta name="twitter:creator" content="@StudioXehryn">
+    <meta property="og:image" content="https://www.xehryn.com/tutorials/images/fishregions/banner.png" />
+    <meta name="twitter:title" content="Fishing with Region IDs - Tutorials | Studio Xehryn">
+    <title>Fishing with Region IDs - Tutorials | Studio Xehryn</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <img src="/images/header-xehryn.png" style="max-width:100%"/>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li class="active"><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.reddit.com/r/StudioXehryn" class="icon fa-reddit-alien"><span class="label">Reddit</span></a></li>
+                <li><a href="https://twitter.com/StudioXehryn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+
+            <section class="post">
+                <header class="major">
+                    <div style="text-align: center;"><img src="images/fishregions/banner.png" style="max-width:100%"/></div>
+                    <h1>Fishing with Region IDs</h1>
+                    <p>Implement one aspect of a fishing system using common events and region IDs.</p>
+                </header>
+                
+                <h3>Engine: RPG Maker MV / MZ</h3>
+                <h3>Difficulty: Easy</h3>
+                
+                <h2>Introduction</h2>
+                <p>When it comes to fishing systems, there are two aspects to consider: the fishing spot, and the fishing minigame. This tutorial will cover the <b>fishing spot</b>, as I have already made a tutorial on a fishing minigame, <b><a href="https://www.xehryn.com/tutorials/evented-fishing">seen here (reflex / timed press minigame)!</a></b> Please note: that tutorial uses VX Ace, but the method can be easily ported to MV / MZ!</p>
+                
+                <p>This system for determining the <b>fishing spot</b> will lets the player fish anywhere that is marked by region IDs. The other tutorial also covered <b>fishing spots</b>, however the way it is done is restrictive and requires making a lot of duplicate events, which can introduce lag! With this system, we can make any body of water fishable, or even have a body of water contain multiple spots, like in Pokemon. In fact, it doesn't even have to be water, just as long as it's marked with a region ID!</p>
+                
+                <p>Because this system is evented, it is possible to use this in other RPG Maker versions, with some modifications to script calls.</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/example.png"><img src="images/fishregions/example.png" style="max-width: 499px; width:100%"/></a>
+                <br><i>Each pond here can give a different fish, and we can fish at any tile without the need for a hotspot! You can even mix the regions together!</i></div>
+                
+                
+                
+                <h2>Why This Approach</h2>
+                <p>This method has a number of advantages over using events hotspots:</p>
+                <ul><li>You can line the entire edge of a body of water without worrying about lag from too many events.</li>
+                <li>Avoids having hard-to-see event hotspots, as some events might blend in too well.</li>
+                <li>You can change the system without having to modify possibly hundreds of events across maps due to everything being in one common event vs spread out throughout your game.</li>
+                <li>You can have bodies of water that have location-dependent fish, such having different fish in the center of a lake vs on the edge.</li>
+                </ul>
+                
+                
+                
+                <h2>The Gist</h2>
+                <p>We'll be setting up a common event named "Determine Fish" that is called by the <b>Fishing Rod</b> item when used. "Determine Fish" will then check the tile directly in front of the player for a region ID, and we will use that region ID to determine what fish the player would receive.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/diagram.png"><img src="images/fishregions/diagram.png" style="max-width: 471px; width:100%"/></a>
+                <br><i>Each arrow in the diagram represents data passed down to the next step. (...The diagram ended up kinda looking like a fishbone?!)</i></div>
+                
+                
+                
+                <h2>What We Will Need</h2>
+                <ul><li>Fully Evented - 4 Variables: Player X, Player Y, Region ID, Fish ID</li><li>With Script Calls - 2 Variables: Region ID and Fish ID</li><li>1 Common Event: Determine Fish</li></ul>
+                
+                
+                
+                <h2>Setting up the Database</h2>
+                <p>In the items tab of the Database, create your items for the fishing rod and the fish. The Fishing Rod item should be a Key Item that can be used repeatedly. Remember to set <b>Consumable</b> to No, <b>Scope</b> to None, <b>Occasion</b> to Always.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/rod.png"><img src="images/fishregions/rod.png" style="max-width: 765px; width:100%"/></a>
+                <br><i>Your Fishing Rod item should look a bit like this. (Ignore the item icon.)</i></div>
+
+
+                
+                <h2>The Common Event - Getting the Region ID</h2>
+                <p>For the common event, we'll first get the player's coordinates on the map. Then, we'll check the player's direction and adjust the coordinates to move one tile in the player's direction. Using these coordinates, we will check the region ID and set it to a variable. (Pictures below.)</p>
+                
+                <p>To get the player's coordinates, set two variables to the player's map X and Y. With events, use Control Variables -> Game Data -> Character -> Player -> Map X.</p>
+                
+                <p>Now, check the player's direction with Conditional Branch, page 3. Nest these conditional branches with an Else branch and check the other directions. For Down, add 1 to Y; Up, subtract 1 from Y; Left, subtract 1 from X; Right, add 1 to X.</p>
+                
+                <p>Now we have the coordinates of the tile in front of the player. Use it by going to Event Commands page 3, <b>Get Location Info</b>. Set the variable to a new variable, Region ID, set the <b>Info Type</b> to Region ID, and set Location to <b>Designation with variables</b>, with our X and Y variables.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/getlocationinfo.png"><img src="images/fishregions/getlocationinfo.png" style="max-width: 574px; width:100%"/></a>
+                <br><i>Make sure to set the variables correctly!</i></div>
+
+                <p>Your common event will look something like this:</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/tilecheck evented.png"><img src="images/fishregions/tilecheck evented.png" style="max-width: 500px; width:100%"/></a>
+                <br><i>Final result with only event commands.</i></div>
+
+                <p>That takes up quite a lot of space, so if you'd like, you can make it using a single script call (variable 3 is Region ID here):</p>
+<pre><code>x = $gamePlayer.x;
+y = $gamePlayer.y;
+switch($gamePlayer.direction()){
+  case 2: y += 1; break;
+  case 4: x -= 1; break;
+  case 6: x += 1; break;
+  case 8: y -= 1; break;
+}
+region = $gameMap.regionId(x,y);
+$gameVariables.setValue(3, region);</code></pre>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/tilecheck script.png"><img src="images/fishregions/tilecheck script.png" style="max-width: 331px; width:100%"/></a>
+                <br><i>Final result with just the script call. A lot of space saved!</i></div>
+                
+                
+                
+                <h2>The Common Event - Determining the Fish</h2>
+                <p>Now that we have the Region ID, we will check what fish will appear. But first, we need to make sure to handle what happens if there is no region ID; if the player uses the rod somewhere without water. Set up a check for Region ID 0, which is if there is no ID marked. You'll want to <b>Exit Event Processing</b> if the Region ID is 0, so the player can't fish where they aren't supposed to.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/region0.png"><img src="images/fishregions/region0.png" style="max-width: 258px; width:100%"/></a>
+                <br><i>Put whatever message you want.</i></div>
+                
+                <p>Now for determining fish for valid Region IDs. This is as simple as just using a conditional branch to check the Region ID number, and setting a variable Fish ID to whatever fish we want to appear for that region. <b>Note that Fish ID isn't the same as an item ID in the database!</b> It's simply a way to keep track of types of fish in your game, and it can be whatever you want. You may choose the item ID as the Fish ID if it makes things easier.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/fishid.png"><img src="images/fishregions/fishid.png" style="max-width: 317px; width:100%"/></a>
+                <br><i>You can copy and paste your conditional branches. Keep in mind that regions go up to 255 - though I don't recommend having that many variations or fish!</i></div>
+                
+                <p>Maybe you want multiple fish in the same region ID, and have it be random which fish is found? You can do that with a script call and an array, like so (variable 4 is Fish ID here):</p>
+<pre><code>fish = [1, 2, 5, 8, 10];
+fid = fish[Math.floor(Math.random() * fish.length)];
+$gameVariables.setValue(4, fid);</code></pre>
+
+                <p>Put all the Fish ID in between the square brackets, separated by commas. You can increase the chance of a fish being picked by adding it multiple times, like [1, 1, 1, 2, 5, 8, 10]. </p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/random.png"><img src="images/fishregions/random.png" style="max-width: 448px; width:100%"/></a>
+                <br><i>Pick out a random fish among IDs 1, 2, 5, 8, 10.</i></div>
+
+                
+                
+                <h2>The Common Event - Starting the Fishing Minigame</h2>
+                <p>After determining which fish the player will find, call the common event for the fishing minigame <b><a href="https://www.xehryn.com/tutorials/evented-fishing">(not included here, click here for that tutorial)</a></b>. Of course, if you don't want a minigame and just want to give the fish directly, just jump to the section "Part 3: Rewards".</p>
+                
+                <div class="box" style="text-align: center">
+                <a href="images/fishing/reward.png"><img src="images/fishing/reward.png" style="max-width: 682px; width:100%"/></a>
+                <br><i>VX Ace Image from the minigame tutorial, rewards section. Very straightforward eventing.</i></div>
+
+                
+                
+                <h2>Final Result</h2>
+                <p>Here's how the common event looks after it is complete. Of course it'll look different for your game, as there'll be plenty of fish to catch!</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/final.png"><img src="images/fishregions/final.png" style="max-width: 628px; width:100%"/></a>
+                <br><i>Pretty barebones... Expand as needed!</i></div>
+                
+                
+                
+                <h2>Setting the Regions</h2>
+                <p>Now that you have the common event done and the usable Fishing Rod that can call the common event, you will need to make it possible to fish on the map! Here's a quick example.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/mapex.png"><img src="images/fishregions/mapex.png" style="max-width: 711px; width:100%"/></a>
+                <br><i>What fish lurks within these three ponds?</i></div>
+                
+                
+                <p>On the tileset palette, click on the R tab to show regions. You can then paint regions like any other tile. Region 0 is the blank region.</p>
+                <div class="box" style="text-align: center">
+                <a href="images/fishregions/mapexr.png"><img src="images/fishregions/mapexr.png" style="max-width: 1006px; width:100%"/></a>
+                <br><i>Painting the regions. See how the southern pond turns to Region 3 past the edge.</i></div>
+                
+                <p>In this example, the western pond will give us Fish ID 1, the eastern pond will give Fish ID 2. However, the southern pond has three different region IDs! On the west side of the bridge, along the shoreline, we'll find Fish ID 1, and on the east Fish ID 2. But if we go onto the bridge, we can find five different Fish IDs! If your game gives players the ability to travel on the water, you can take better advantage of the inner sections of water.</p>
+                
+                <p>Be mindful of other plugins that use regions. You will need to add those regions to the region-check part of the common event so the game knows it's not a valid region!</p>
+                
+                <h2>Conclusion</h2>
+                <p>I hope this tutorial was helpful. This method of using regions is very versatile and could be used for other purposes besides fishing as well! If the situation calls for a system that requires an item to be used, and needing to check the tile right in front of the player (maybe a mystery game?), this method may do the trick!</p>
+                
+                <p>Naturally, further optimizations can be done with this system. This tutorial aimed to create a baseline that is also easy to follow for novices.</p>
+                
+                <p>Feel free to let me know if you have any feedback or tutorial requests for systems / puzzles!</p>
+
+                
+            </section>
+
+        </div>
+
+        <footer id="footer">
+            <section style="text-align: center">
+                <p>If you enjoyed reading this post, feel free to <a href="https://twitter.com/StudioXehryn">follow us on Twitter</a> to get updates on our games and blog posts!</p>
+            </section>
+        </footer>
+        
+        <div id="copyright">
+            <ul><li>&copy; Studio Xehryn</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
