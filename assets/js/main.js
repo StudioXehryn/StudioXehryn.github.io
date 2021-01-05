@@ -36,9 +36,6 @@
 	// Scrolly.
 		$('.scrolly').scrolly();
 
-	// Background.
-		$wrapper._parallax(0.925);
-
 	// Nav Panel.
 
 		// Toggle.
