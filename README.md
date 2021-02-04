@@ -1,2 +1,2 @@
-# StudioXehryn.github.io
-Public website.
+# www.xehryn.com
+Public website for Studio Xehryn.
